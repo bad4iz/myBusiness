@@ -1,13 +1,13 @@
 (function () {
-   // пространство имен
+    // пространство имен
     window.App = {
         Models: {},
-        Collections:{},
-        Views:{}
+        Collections: {},
+        Views: {}
     };
 
     //шаблон
-    window.template = function(id) {
+    window.template = function (id) {
         return _.template($('#' + id).html());
     };
 
@@ -20,13 +20,20 @@
             return this;
         }
     });
-App.Collection.Task = Backbone.Collections.extend({
+    App.Collection.Task = Backbone.Collections.extend({
+        model: App.Models.Task
+    });
 
-});
-    // var task = new App.Models.Task({
-    //     title: 'сходить в магазин',
-    //     priority: 4
-    // });
+    var tasks = new App.Collections.Task([
+        {
+            title: "sdfs",
+            priority: 4
+        },
+        {
+            title: "sdfs",
+            priority: 4
+        }
+    ]);
     var taskView = new App.Views.Task({model: task});
 
     console.info(taskView.render().el);
