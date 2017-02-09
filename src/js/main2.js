@@ -21,5 +21,10 @@
             this.$el.html(this.model('title'));
             return this;
         }
+
+        var task = new App.Models.Task({
+            title: 'сходить в магазин',
+            priority: 4
+        })
     });
 }());
