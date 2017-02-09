@@ -44,14 +44,19 @@ PersonView = Backbone.View.extend({
 // заглушка прихода данных с сервера
 var peopls = [
     {
-        name: '',
+        name: 'Петя',
         age: 21,
-        job: ''
+        job: 'Сварщик'
     },
     {
-        name: 'ertewt',
-        age: 21,
-        job: ''
+        name: 'Анна',
+        age: 18,
+        job: 'бухгалтер'
+    },
+    {
+        name: 'Вася',
+        age: 16,
+        job: 'Супур-пупер программист'
     }
 ];
 
@@ -64,4 +69,5 @@ person.on('error', function (model, error) {
     console.error(error);
 });
 
+// создание виевс
 var personView = new PersonView({model: person});
