@@ -21,10 +21,10 @@
         }
     });
 
-    var task = new App.Models.Task({
-        title: 'сходить в магазин',
-        priority: 4
-    });
+    // var task = new App.Models.Task({
+    //     title: 'сходить в магазин',
+    //     priority: 4
+    // });
     var taskView = new App.Views.Task({model: task});
 
     console.info(taskView.render().el);
