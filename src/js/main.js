@@ -24,6 +24,14 @@ var PeopleCollection = Backbone.Collection.extend({
     model: Person
 });
 
+// вид представление списка людей
+var PeopleView = Backbone.View.extend({
+    tagName:'ul',
+    initialize: function () {
+        console.info(this.collection);
+    }
+
+});
 
 // вид представления одного человека
 PersonView = Backbone.View.extend({
@@ -63,11 +71,14 @@ var peopls = [
 var peoplCollection = new PeopleCollection(peopls);
 
 
-var person = Person();
+// var person = Person();
 
-person.on('error', function (model, error) {
-    console.error(error);
-});
+// person.on('error', function (model, error) {
+//     console.error(error);
+// });
 
 // создание виевс
-var personView = new PersonView({model: person});
+// var personView = new PersonView({model: person});
+
+// экземпляр вида нашей колекции
+var peopleView = new PeopleView({collection: peoplCollection});
