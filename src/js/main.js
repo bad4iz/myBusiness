@@ -1,3 +1,4 @@
+// Модель человека
 var Person;
 Person = Backbone.Model.extend({
     defaults: {
@@ -18,13 +19,18 @@ Person = Backbone.Model.extend({
     }
 });
 
+// Список людей (колекция)
+var PeopleCollection = Backbone.Collection.extend({
+    model: Person
+});
 
 
+// вид представления одного человека
 PersonView = Backbone.View.extend({
     tagName: 'li',
-    template:_.template( $('#person-id').html() ),
+    template: _.template($('#person-id').html()),
     initialize: function () {
-            // при инициализации
+        // при инициализации
     },
     render: function () {
         // антипатерн
@@ -35,9 +41,26 @@ PersonView = Backbone.View.extend({
     }
 });
 
+// заглушка прихода данных с сервера
+var peopls = [
+    {
+        name: '',
+        age: 21,
+        job: ''
+    },
+    {
+        name: 'ertewt',
+        age: 21,
+        job: ''
+    }
+];
+
+var peoplCollection = new PeopleCollection(peopls);
+
+
 var person = Person();
 
-person.on('error',function (model, error) {
+person.on('error', function (model, error) {
     console.error(error);
 });
 
