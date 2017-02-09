@@ -14,5 +14,12 @@
     App.Models.Task = Backbone.Model.extend({
 
     });
-    App.Views.Task = Backbone.Views.extend({});
+    App.Views.Task = Backbone.Views.extend({
+        tagName: 'li',
+
+        render: function () {
+            this.$el.html(this.model('title'));
+            return this;
+        }
+    });
 }());
