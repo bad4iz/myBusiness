@@ -5,19 +5,10 @@ Person = Backbone.Model.extend({
         names: 'Вася',
         age: '20',
         job: 'супер- пупeр программист'
-    },
-    validate: function (attrs) {
-        if (attrs.age <= 0) {
-            return "Возраст должен быть положительный";
-        }
-        if (!attrs.name) {
-            return "имя уже сушествует";
-        }
-    },
-    walk: function () {
-        return this.get('names') + ' is walking';
     }
 });
+
+var person = new Person();
 
 // Список людей (колекция)
 var PeopleCollection = Backbone.Collection.extend({
@@ -28,17 +19,29 @@ var PeopleCollection = Backbone.Collection.extend({
 var PeopleView = Backbone.View.extend({
     tagName:'ul',
     initialize: function () {
-        console.info(this.collection);
+        // console.info(this.collection);
+    },
+    render: function () {
+        // 1 пройтись пр всему списку и срендерить каждый PresonView
+        this.collection.each(function (person) {
+            var personView = new PersonView({model: person});
+            this.$el.append(personView.el);
+            console.log(this.collection);
+        }, this);
+
+        // 2 вставить в главный тег ul (this.$el)
+
     }
 
 });
 
 // вид представления одного человека
-PersonView = Backbone.View.extend({
+var PersonView = Backbone.View.extend({
     tagName: 'li',
     template: _.template($('#person-id').html()),
     initialize: function () {
         // при инициализации
+        this.render();
     },
     render: function () {
         // антипатерн
@@ -50,7 +53,7 @@ PersonView = Backbone.View.extend({
 });
 
 // заглушка прихода данных с сервера
-var peopls = [
+var people = [
     {
         name: 'Петя',
         age: 21,
@@ -67,18 +70,5 @@ var peopls = [
         job: 'Супур-пупер программист'
     }
 ];
-
-var peoplCollection = new PeopleCollection(peopls);
-
-
-// var person = Person();
-
-// person.on('error', function (model, error) {
-//     console.error(error);
-// });
-
-// создание виевс
-// var personView = new PersonView({model: person});
-
-// экземпляр вида нашей колекции
-var peopleView = new PeopleView({collection: peoplCollection});
+var peopleCollection = new PeopleCollection(people);
+var peopleView = new PeopleView({collection: peopleCollection});
