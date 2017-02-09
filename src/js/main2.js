@@ -20,7 +20,9 @@
             return this;
         }
     });
+App.Collection.Task = Backbone.Collections.extend({
 
+});
     // var task = new App.Models.Task({
     //     title: 'сходить в магазин',
     //     priority: 4
