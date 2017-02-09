@@ -7,14 +7,12 @@
     };
 
     //шаблон
-    window.template = function (id) {
+    window.template = function(id) {
         return _.template($('#' + id).html());
     };
 
-    App.Models.Task = Backbone.Model.extend({
-
-    });
-    App.Views.Task = Backbone.Views.extend({
+    App.Models.Task = Backbone.Model.extend({});
+    App.Views.Task = Backbone.View.extend({
         tagName: 'li',
 
         render: function () {
