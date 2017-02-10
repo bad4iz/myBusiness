@@ -10,12 +10,16 @@ $(function () {
     window.template = function (id) {
         return _.template( $('#' + id).html() );
     };
+
     // модель
     App.Models.Task = Backbone.Model.extend({
         validate: function (attrs) {
-            return 'Имя задачи должно быть валидным!';
+            if (! $.trim(attrs.title)) {
+                return 'Имя задачи должно быть валидным!';
+            }
         }
     });
+
     // одно отображение
     App.Views.Task = Backbone.View.extend({
         initialize: function () {
@@ -32,9 +36,10 @@ $(function () {
             'click .edit': 'editTask'
         },
         editTask: function () {
-            // console.log('изменение задачи');
            var newTaskTitle = prompt('как обозвать задачу', this.model.get('title'));
-
+            if (!newTaskTitle) {
+                return;
+            }
            this.model.set('title', newTaskTitle);
         }
     });
