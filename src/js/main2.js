@@ -20,15 +20,21 @@ $(function () {
         }
     });
 
-    App.Collection.Task = Backbone.Collection.extend({
+    App.Collections.Task = Backbone.Collection.extend({
         model: App.Models.Task
     });
     App.Views.Tasks = Backbone.View.extend({
         tagName: 'ul',
         render: function () {
-            this.
+            this.collection.each(this.assOne, this);
+            return this;
         },
-        add
+        addOne: function (task) {
+            //создавать новый дочерний вид
+            var taskView = new  App.Views.Task({ model: task});
+            // добавлять его в корневой элемент
+            this.$el.append(taskView.render().el);
+        }
     });
 
     var task = [
@@ -43,11 +49,9 @@ $(function () {
         }
     ];
 
-    var tasks = new App.Collection.Task({collection: task});
+    var tasks = new App.Collections.Task({collection: task});
 
-    var taskView = new  App.Views.Task({ model: task});
 
-    console.log(taskView.render().el);
     $('body').append(taskView.render().el);
 
 });
