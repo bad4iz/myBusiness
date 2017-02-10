@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="src/css/test.css">
+</head>
+<body>
+
+<!--<div id="menu"> &lt;!&ndash; Блок меню &ndash;&gt;-->
+    <!--<ul>-->
+        <!--<li><a href="#!/">One</a></li>-->
+        <!--<li><a href="#!/two">Two</a></li>-->
+        <!--<li><a href="#!/three">Three</a></li>-->
+    <!--</ul>-->
+<!--</div>-->
+
+<!-- первая блок -->
+<script type="text/template" id="oneTemplate">
+    <div id="one">
+        <div id="menu"> <!-- Блок меню -->
+            <ul>
+                <li><a href="#!/" class="Active">One</a></li>
+                <li><a href="#!/two">Two</a></li>
+                <li><a href="#!/three">Three</a></li>
+            </ul>
+        </div>
+        <h1>Первая страница</h1>
+        <p>Привет мир</p>
+        <div class="tasks">
+
+        </div>
+    </div>
+</script>
+
+<!--второй блок-->
+<script type="text/template" id="twoTemplate">
+    <div id="two" class="block">
+        <h1>Вторая страница</h1>
+    </div>
+    <div id="menu"> <!-- Блок меню -->
+        <ul>
+            <li><a href="#!/">One</a></li>
+            <li><a href="#!/two" class="Active">Two</a></li>
+            <li><a href="#!/three">Three</a></li>
+        </ul>
+    </div>
+</script>
+
+<!--// третий блок-->
+<script type="text/template" id="threeTemplate">
+    <div id="three" class="block">
+        <h1>Третья Страница</h1>
+        <ul>
+            <li><a href="#!/">One</a></li>
+            <li><a href="#!/two">Two</a></li>
+            <li><a href="#!/three" class="Active">Three</a></li>
+        </ul>
+    </div>
+</script>
+<script src="src/js/lib/jquery-1.8.3.js"></script>
+<script src="src/js/lib/underscore.js"></script>
+<script src="src/js/lib/backbone.js"></script>
+<script src="src/js/test.js"></script>
+</body>
+</html>

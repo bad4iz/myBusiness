@@ -57,6 +57,11 @@ $(function () {
 
     App.Views.Tasks = Backbone.View.extend({
         tagName: 'ul',
+
+        initialize: function () {
+            this.collection.on('add',this.addOne,this);
+        },
+
         render: function () {
             this.collection.each(this.addOne, this);
             return this;
@@ -72,21 +77,22 @@ $(function () {
     App.Views.AddTask = Backbone.View.extend({
         el: '#addTask',
         events: {
-            'submit': 'submit'
+            'submit' : 'submit'
         },
-        initialize: function () {
-            
+
+        initialize: function() {
         },
-        submit: function (e) {
+
+        submit: function(e) {
             e.preventDefault();
 
-            var newTaskTitle = $(e.currentTarget).find('input[type=text]').val();
+            var newTaskTitle =  $(e.currentTarget).find('input[type=text]').val();
 
-            var newTask = new App.Models.Task({title: newTaskTitle});
-            this.collections.add(newTask);
-            console.log(newTask);
+            var newTask = new App.Models.Task({ title: newTaskTitle });
+            this.collection.add(newTask);
 
         }
+
     });
 
 
@@ -113,7 +119,6 @@ $(function () {
     $('.tasks').html(tasksView.render().el);
 
 
-    var addTaskView = new App.Views.AddTask({collections: tasksCollection});
-
+    var addTaskView = new App.Views.AddTask({ collection: tasksCollection });
 });
 
