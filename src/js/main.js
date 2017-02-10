@@ -88,7 +88,7 @@
     var peopleCollection = new  App.Collection.People(people);
     var peopleView = new App.Views.People({collection: peopleCollection});
 
-    $(document.body).append(peopleView.render().el);
+    $('body').append(peopleView.render().el);
 
 
 }());
