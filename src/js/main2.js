@@ -24,6 +24,8 @@ $(function () {
     App.Views.Task = Backbone.View.extend({
         initialize: function () {
             this.model.on('change', this.render, this);
+            this.model.on('destroy', this.remove, this);
+
         },
         tagName: 'li',
         template: template('taskTemplate'),
@@ -33,11 +35,18 @@ $(function () {
             return this;
         },
         events:{
-            'click .edit': 'editTask'
+            'click .edit': 'editTask',
+            'click .delete': 'destroy'
         },
         editTask: function () {
            var newTaskTitle = prompt('как обозвать задачу', this.model.get('title'));
            this.model.save('title', newTaskTitle);
+        },
+        destroy: function () {
+            this.model.destroy();
+        },
+        remove: function () {
+            this.$el.remove();
         }
     });
 
@@ -60,6 +69,28 @@ $(function () {
         }
     });
 
+    App.Views.AddTask = Backbone.View.extend({
+        el: '#addTask',
+        events: {
+            'submit': 'submit'
+        },
+        initialize: function () {
+            
+        },
+        submit: function (e) {
+            e.preventDefault();
+
+            var newTaskTitle = $(e.currentTarget).find('input[type=text]').val();
+
+            var newTask = new App.Models.Task({title: newTaskTitle});
+            console.log(newTask);
+            this.collection.add(newTask);
+        }
+    });
+
+
+
+
     // заглушка
     var tet = [
         {
@@ -77,7 +108,11 @@ $(function () {
 
 
     var tasksView = new App.Views.Tasks({collection: tasksCollection});
+
     $('.tasks').html(tasksView.render().el);
+
+
+    var addTaskView = new App.Views.AddTask({collections: tasksCollection});
 
 });
 

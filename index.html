@@ -8,6 +8,10 @@
 <body>
 <p>Привет мир</p>
 <h1>Список</h1>
+<form action="" id="addTask">
+    <input type="text" placeholder="Ваша текущая задача">
+    <input type="submit" value="Добавить задачу">
+</form>
 <div class="tasks">
     <script type="text/template" id="taskTemplate">
     <span><%= title %></span> <button class="edit">edit</button> <button class="delete">delete</button>
