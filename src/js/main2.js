@@ -14,7 +14,7 @@ $(function () {
     // модель
     App.Models.Task = Backbone.Model.extend({
         validate: function (attrs) {
-            if (! $.trim(attrs.title)) {
+            if(!$.trim(attrs.title)) {
                 return 'Имя задачи должно быть валидным!';
             }
         }
@@ -37,9 +37,6 @@ $(function () {
         },
         editTask: function () {
            var newTaskTitle = prompt('как обозвать задачу', this.model.get('title'));
-            if (!newTaskTitle) {
-                return;
-            }
            this.model.set('title', newTaskTitle);
         }
     });
