@@ -40,7 +40,7 @@ $(function () {
         },
         editTask: function () {
            var newTaskTitle = prompt('как обозвать задачу', this.model.get('title'));
-           this.model.save('title', newTaskTitle);
+           this.model.set('title', newTaskTitle, {validate: true});
         },
         destroy: function () {
             this.model.destroy();
@@ -83,8 +83,9 @@ $(function () {
             var newTaskTitle = $(e.currentTarget).find('input[type=text]').val();
 
             var newTask = new App.Models.Task({title: newTaskTitle});
+            this.collections.add(newTask);
             console.log(newTask);
-            this.collection.add(newTask);
+
         }
     });
 
@@ -104,7 +105,7 @@ $(function () {
         }
     ];
 
-    var tasksCollection = new App.Collections.Task(tet);
+    window.tasksCollection = new App.Collections.Task(tet);
 
 
     var tasksView = new App.Views.Tasks({collection: tasksCollection});
