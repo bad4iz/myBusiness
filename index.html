@@ -6,10 +6,13 @@
     <link rel="stylesheet" href="src/css/test.css">
 </head>
 <body>
-<script type="text/template" id="person-id">
-    <!--<strong><%= name %> </strong>(<%= age %>) - <%= job %>-->
-</script>
 <p>Привет мир</p>
+<h1>Список</h1>
+<div class="tasks">
+    <script type="text/template" id="taskTemplate">
+    <span><%= title %></span> <button class="edit">edit</button> <button class="delete">delete</button>
+</script>
+</div>
 <script src="src/js/lib/jquery-1.8.3.js"></script>
 <script src="src/js/lib/underscore.js"></script>
 <script src="src/js/lib/backbone.js"></script>
