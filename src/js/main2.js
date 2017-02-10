@@ -1,4 +1,4 @@
-(function () {
+$(function () {
     // пространство имен
     window.App = {
         Models: {},
@@ -22,7 +22,6 @@
     App.Collections.Task = Backbone.Collection.extend({
         model: App.Models.Task
     });
-
     App.Views.Task = Backbone.View.extend({
         tagName: 'ul',
         render: function () {
@@ -39,8 +38,7 @@
     });
 
 
-
-    var tasksCollections = new App.Collections.Task([
+    var tasksCollection = new App.Collections.Task([
         {
             title: "выучить джавускрипт",
             priority: 4
@@ -53,10 +51,8 @@
     //
     // console.info(taskView.render().el);
 
-var tasksView = new App.Views.Task({collection: tasksCollections});
+    var tasksView = new App.Views.Task({collection: tasksCollection});
 
-
-tasksView.render();
-$('body').html(tasksView.el);
-
-}());
+    tasksView.render();
+    $('body').html(tasksView.el);
+});
