@@ -13,18 +13,10 @@ $(function () {
 
     // модель
     App.Models.Task = Backbone.Model.extend({
-        initialize: function () {
-            console.log('initialize');
-
-        },
-        defaults: {
-            title: 'Вася'
-        },
-        validate: function( attrs ) {
-            console.log('ddddddddddddddddddddddddddddddddddddddddddd');
-        },
-        walk: function () {
-            console.log('гуляй вася');
+       validate: function( attrs) {
+            if (!$.trim(attrs.title)) {
+                return 'Имя задачи должно быть валидным';
+            }
         }
     });
 
@@ -45,7 +37,7 @@ $(function () {
         },
         editTask: function () {
            var newTaskTitle = prompt('как обозвать задачу', this.model.get('title'));
-           this.model.set('title', newTaskTitle);
+           this.model.save('title', newTaskTitle);
         }
     });
 
