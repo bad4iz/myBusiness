@@ -30,9 +30,7 @@ $(function () {
         editTask: function () {
             // console.log('изменение задачи');
            var newTaskTitle = prompt('как обозвать задачу', this.model.get('title'));
-            // if (!newTaskTitle) {
-            //     return;
-            // }
+
            this.model.set('title', newTaskTitle);
         }
     });
