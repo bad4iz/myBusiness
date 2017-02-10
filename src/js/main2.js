@@ -13,10 +13,18 @@ $(function () {
 
     // модель
     App.Models.Task = Backbone.Model.extend({
-        validate: function (attrs) {
-            if(!$.trim(attrs.title)) {
-                return 'Имя задачи должно быть валидным!';
-            }
+        initialize: function () {
+            console.log('initialize');
+
+        },
+        defaults: {
+            title: 'Вася'
+        },
+        validate: function( attrs ) {
+            console.log('ddddddddddddddddddddddddddddddddddddddddddd');
+        },
+        walk: function () {
+            console.log('гуляй вася');
         }
     });
 
@@ -41,6 +49,7 @@ $(function () {
         }
     });
 
+    // коллекция задач
     App.Collections.Task = Backbone.Collection.extend({
         model: App.Models.Task
     });
@@ -59,7 +68,8 @@ $(function () {
         }
     });
 
-    var tasksCollection = new App.Collections.Task([
+    // заглушка
+    var tet = [
         {
             title: 'киношка'
         },
@@ -69,7 +79,9 @@ $(function () {
         {
             title: 'закежка'
         }
-    ]);
+    ];
+
+    var tasksCollection = new App.Collections.Task(tet);
 
 
     var tasksView = new App.Views.Tasks({collection: tasksCollection});
