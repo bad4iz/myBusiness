@@ -10,8 +10,12 @@ $(function () {
     window.template = function (id) {
         return _.template( $('#' + id).html() );
     };
-
-    App.Models.Task = Backbone.Model.extend({});
+    // модель
+    App.Models.Task = Backbone.Model.extend({
+        validate: function (attrs) {
+            return 'Имя задачи должно быть валидным!';
+        }
+    });
     // одно отображение
     App.Views.Task = Backbone.View.extend({
         initialize: function () {
