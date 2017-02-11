@@ -1,38 +1,35 @@
-App.Router = Backbone.Router.extend({
+/////////////////////////////////////////////
+// роутер
+////////////////////////////////////////////
+var Controller = Backbone.Router.extend({
     routes: {
-        '' : 'index',
-        '#' : 'index',
-        'contacts' : 'contacts',
-        'other' : 'other',
-        '*ddd' : 'index'
+        "": "index", // Пустой hash-тэг
+        "#": "index", // Начальная страница
+        "contacts": "contacts", // Блок контактов
+        "other": "other" // Блок другой
     },
 
-    index: function() {
-        console.log('Index!!!');
-        // var index = new App.Views.Index();
-        // $('body').html(index.render().el);
-
-        var imagesView = new App.Views.Images({collection: imagesCollection});
-
-        $('#one').html(imagesView.render().el);
-
-        if (Views.index != null) {
-            Views.index.render();
-        }
-
+    index: function () {
+        $(".block").hide(); // Прячем все блоки
+        $("#index").show(); // Показываем нужный
+        //            contactsView.model.destroy();
     },
-    contacts: function() {
-        console.log('contacts');
-        if (Views.contacts != null) {
-            Views.contacts.render();
-        }
+
+    contacts: function () {
+        $(".block").hide();
+        $("#contacts").show();
+        //            contactsView.model.destroy();
+        var contactCollection = new Contacts(persons);
+
+        var contactsView = new ContactsView({
+            collection: contactCollection
+        });
+
+        $('#list-contacts').html(contactsView.render().el);
     },
-    other: function() {
-        console.log('other');
-        if (Views.other != null) {
-            Views.other.render();
-        }
+
+    other: function () {
+        $(".block").hide();
+        $("#other").show();
     }
-
 });
-
