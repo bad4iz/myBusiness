@@ -1,37 +1,25 @@
-App.Collections.Contacts = Backbone.Collection.extend({
-    model: App.Models.Contact,
-    // url: '/contacts'
+///////////////////////////////
+//  колекция контактов
+///////////////////////////////
+var Contacts = Backbone.Collection.extend({
+    model: Person
 });
 
-App.Collections.Images = Backbone.Collection.extend({
-    model:App.Models.Image
-});
 
-// заглушка
-images = [
-    {
-        link: 'one'
-    },
-    {
-        link: 'two'
-    },
-    {
-        link: 'three'
-    },
-    {
-        link: 'four'
-    }
-];
 
-var imagesCollection = new App.Collections.Images(images);
+///////////////////////////////////////
+//  заглушка
+//////////////////////////////////////
+var persons = [
+    {
+        title: 'киношка'
+        },
+    {
+        title: 'игрулька'
+        },
+    {
+        title: 'закежка'
+        }
+    ];
 
-// менюшки
-App.Collections.Menu = Backbone.Collection.extend({
-    model:App.Models.Menu
-});
-var menus =   [
-    { title: 'index'},
-    { title: 'contacts'},
-    { title: 'three'}
-];
-var memuCollections = App.Collections.Menu(menus);
+var contactCollection = new Contacts(persons);
