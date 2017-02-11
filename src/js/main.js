@@ -2,7 +2,8 @@
     window.App = {
         Models: {},
         Views: {},
-        Collection: {}
+        Collection: {},
+        Routs:{}
     };
 
     // хелпер шаблона
