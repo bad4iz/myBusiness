@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="src/css/test.css">
+</head>
+<body>
+<p>Привет мир</p>
+<h1>Список</h1>
+<form action="" id="addTask">
+    <input type="text" placeholder="Ваша текущая задача">
+    <input type="submit" value="Добавить задачу">
+</form>
+<div class="tasks">
+    <script type="text/template" id="taskTemplate">
+    <span><%= title %></span> <button class="edit">edit</button> <button class="delete">delete</button>
+</script>
+</div>
+<script src="src/js/lib/jquery-1.8.3.js"></script>
+<script src="src/js/lib/underscore.js"></script>
+<script src="src/js/lib/backbone.js"></script>
+<!--<script src="src/js/main.js"></script>-->
+<script src="src/js/main2.js"></script>
+</body>
+</html>
