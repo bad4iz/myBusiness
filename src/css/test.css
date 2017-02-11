@@ -4,3 +4,7 @@ div{
 .Active{
     color: red;
 }
+#contacts, #other
+{
+    display: none;
+}
