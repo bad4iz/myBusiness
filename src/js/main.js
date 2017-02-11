@@ -156,7 +156,7 @@
             $("#contacts").show();
 
 
-            $('#contacts').(contactsView.render().el);
+            $('#list-contacts').html(contactsView.render().el);
         },
 
         other: function () {
