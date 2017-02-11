@@ -3,7 +3,7 @@
         Models: {},
         Views: {},
         Collection: {},
-        Routs: {}
+        Router: {}
     };
 
     // хелпер шаблона
@@ -14,13 +14,12 @@
     /////////////////////////////////////////////
     // роутер
     ////////////////////////////////////////////
-    App.Routers.Main =
-        var Controller = Backbone.Router.extend({
+    var Controller = Backbone.Router.extend({
             routes: {
                 "": "index", // Пустой hash-тэг
                 "#": "index", // Начальная страница
-                "contacts": "contacts", // Блок удачи
-                "other": "other" // Блок ошибки
+                "contacts": "contacts", // Блок контактов
+                "other": "other" // Блок другой
             },
 
             index: function () {
