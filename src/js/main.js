@@ -78,7 +78,18 @@
     //  список видов контактов
     ///////////////////////////////
     var ContactsView = Backbone.View.extend({
+        initialize: function () {
+            this.model.on('destroy', this.remove, this);
+        },
         tagName: 'ul',
+
+        events: {
+            'click nav': 'destroy'
+        },
+        destroy: function () {
+            console.lof("destroy: function ()");
+            this.model.destroy();
+        },
 
         initialize: function () {
             this.collection.on('add', this.addOne, this);
@@ -95,6 +106,9 @@
             });
             // добавлять его в корневой элемент
             this.$el.append(personView.render().el);
+        },
+        remove: function () {
+            this.$el.remove();
         }
     });
 
@@ -115,12 +129,9 @@
 
     var contactCollection = new Contacts(persons);
 
-
     var contactsView = new ContactsView({
         collection: contactCollection
     });
-
-
 
 
 
@@ -143,9 +154,9 @@
         contacts: function () {
             $(".block").hide();
             $("#contacts").show();
-//            $('#contacts').append(personView.render().el);
-            $('#contacts').append(contactsView.render().el);
 
+
+            $('#contacts').(contactsView.render().el);
         },
 
         other: function () {
