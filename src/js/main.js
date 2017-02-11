@@ -11,36 +11,6 @@
         return _.template($('#' + id).html());
     };
 
-    /////////////////////////////////////////////
-    // роутер
-    ////////////////////////////////////////////
-    var Controller = Backbone.Router.extend({
-        routes: {
-            "": "index", // Пустой hash-тэг
-            "#": "index", // Начальная страница
-            "contacts": "contacts", // Блок контактов
-            "other": "other" // Блок другой
-        },
-
-        index: function () {
-            $(".block").hide(); // Прячем все блоки
-            $("#index").show(); // Показываем нужный
-        },
-
-        contacts: function () {
-            $(".block").hide();
-            $("#contacts").show();
-        },
-
-        other: function () {
-            $(".block").hide();
-            $("#other").show();
-        }
-    });
-
-    var controller = new Controller(); // Создаём контроллер
-
-    Backbone.history.start(); // Запускаем HTML5 History push
 
     //////////////////////////////////
     //  наблюдение за менюшкой
@@ -96,12 +66,75 @@
         }
     });
 
+    ///////////////////////////////
+    //  колекция контактов
+    ///////////////////////////////
+    var Contacts = Backbone.Collection.extend({
+        model: App.Models.Person
+    });
+
+
+    ///////////////////////////////
+    //  список видов контактов
+    ///////////////////////////////
+    var PersonView = Backbone.View.extend({
+        tagName: 'li',
+
+        template: template('person-id') ,
+
+        initialize: function () {
+            this.render();
+        },
+
+        render: function () {
+            this.$el.html(this.template(this.model.toJSON()));
+            return this;
+        }
+    });
+
+
+
+
+
+
+
     var person = new Person;
     var personView = new PersonView({
         model: person
     });
 
 
-    $('#contacts').append(personView.render().el);
+    /////////////////////////////////////////////
+    // роутер
+    ////////////////////////////////////////////
+    var Controller = Backbone.Router.extend({
+        routes: {
+            "": "index", // Пустой hash-тэг
+            "#": "index", // Начальная страница
+            "contacts": "contacts", // Блок контактов
+            "other": "other" // Блок другой
+        },
+
+        index: function () {
+            $(".block").hide(); // Прячем все блоки
+            $("#index").show(); // Показываем нужный
+        },
+
+        contacts: function () {
+            $(".block").hide();
+            $("#contacts").show();
+            $('#contacts').append(personView.render().el);
+        },
+
+        other: function () {
+            $(".block").hide();
+            $("#other").show();
+        }
+    });
+
+    var controller = new Controller(); // Создаём контроллер
+
+    Backbone.history.start(); // Запускаем HTML5 History push
+
 
 }());
