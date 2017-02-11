@@ -54,7 +54,7 @@
     var PersonView = Backbone.View.extend({
         tagName: 'li',
 
-        template: template('person-id') ,
+        template: template('person-id'),
 
         initialize: function () {
             this.render();
@@ -70,38 +70,58 @@
     //  колекция контактов
     ///////////////////////////////
     var Contacts = Backbone.Collection.extend({
-        model: App.Models.Person
+        model: Person
     });
 
 
     ///////////////////////////////
     //  список видов контактов
     ///////////////////////////////
-    var PersonView = Backbone.View.extend({
-        tagName: 'li',
-
-        template: template('person-id') ,
+    var ContactsView = Backbone.View.extend({
+        tagName: 'ul',
 
         initialize: function () {
-            this.render();
+            this.collection.on('add', this.addOne, this);
         },
 
         render: function () {
-            this.$el.html(this.template(this.model.toJSON()));
+            this.collection.each(this.addOne, this);
             return this;
+        },
+        addOne: function (person) {
+            //создавать новый дочерний вид
+            var personView = new PersonView({
+                model: person
+            });
+            // добавлять его в корневой элемент
+            this.$el.append(personView.render().el);
         }
     });
 
+    ///////////////////////////////////////
+    //  заглушка
+    //////////////////////////////////////
+    var persons = [
+        {
+            title: 'киношка'
+        },
+        {
+            title: 'игрулька'
+        },
+        {
+            title: 'закежка'
+        }
+    ];
+
+    var contactCollection = new Contacts(persons);
 
 
-
-
-
-
-    var person = new Person;
-    var personView = new PersonView({
-        model: person
+    var contactsView = new ContactsView({
+        collection: contactCollection
     });
+
+
+
 
 
     /////////////////////////////////////////////
@@ -123,7 +143,9 @@
         contacts: function () {
             $(".block").hide();
             $("#contacts").show();
-            $('#contacts').append(personView.render().el);
+//            $('#contacts').append(personView.render().el);
+            $('#contacts').append(contactsView.render().el);
+
         },
 
         other: function () {
