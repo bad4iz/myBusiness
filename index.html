@@ -14,9 +14,9 @@
     <div id="index" class="block">
         <nav>
             <ul>
-                <ui><a href="#">Главная</a></ui>
-                <ui ><a class="Active" href="#contacts">Контакты</a></ui>
-                <ui><a href="#other">Другое</a></ui>
+                <li class="index  Active">Главная</li>
+                <li class="contacts">Контакты</li>
+                <li class="other">Другое</li>
             </ul>
         </nav>
         <div class="content">Далеко-далеко за словесными горами в стране, гласных и согласных живут рыбные.</div>
@@ -24,12 +24,18 @@
     </div>
 
     <div id="contacts" class="block">
-        <div class="content">Далеко-далеко за словесными горами в стране, гласных и согласных живут рыбные.</div>
+<div class="content">Далеко-далеко за словесными горами в стране, гласных и согласных живут рыбные.</div>
+        <script id="person-id" type="text/template">
+            <strong><%= name %></strong> (
+            <%= age %>) -
+                <%= occupation %>
+        </script>
+        <div id="contacts"></div>
         <nav>
             <ul>
-                <ui><a href="#">Главная</a></ui>
-                <ui class="Active"><a href="#contacts">Контакты</a></ui>
-                <ui><a href="#other">Другое</a></ui>
+                <li class="index">Главная</li>
+                <li class="contacts Active">Контакты</li>
+                <li class="other">Другое</li>
             </ul>
         </nav>
     </div>
@@ -37,7 +43,7 @@
         <div class="content">Далеко-далеко за словесными горами в стране, гласных и согласных живут рыбные.</div>
         <nav>
             <ul>
-                <ui id="back"><a href="javascript:history.back();">Назад</a></ui>
+                <li id="back"><a href="javascript:history.back();">Назад</a></li>
             </ul>
         </nav>
 
