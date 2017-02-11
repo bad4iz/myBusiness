@@ -1,7 +1,7 @@
 /////////////////////////////////////////////
 // роутер
 ////////////////////////////////////////////
-var Controller = Backbone.Router.extend({
+App.Routers = Backbone.Router.extend({
     routes: {
         "": "index", // Пустой hash-тэг
         "#": "index", // Начальная страница
@@ -18,10 +18,9 @@ var Controller = Backbone.Router.extend({
     contacts: function () {
         $(".block").hide();
         $("#contacts").show();
-        //            contactsView.model.destroy();
-        var contactCollection = new Contacts(persons);
+        var contactCollection = new App.Collections.Contacts(persons);
 
-        var contactsView = new ContactsView({
+        var contactsView = new App.Views.ContactsView({
             collection: contactCollection
         });
 

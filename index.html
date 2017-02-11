@@ -24,7 +24,7 @@
     </div>
 
     <div id="contacts" class="block">
-<div class="content">Далеко-далеко за словесными горами в стране, гласных и согласных живут рыбные.</div>
+        <div class="content">Далеко-далеко за словесными горами в стране, гласных и согласных живут рыбные.</div>
         <script id="person-id" type="text/template">
             <strong><%= name %></strong> (
             <%= age %>) -
@@ -55,14 +55,16 @@
     <script src="src/js/lib/backbone.js"></script>
     <script src="src/js/main.js"></script>
     <script src="src/js/test/models.js"></script>
-	<script src="src/js/test/collections.js"></script>
-	<script src="src/js/test/views.js"></script>
-	<script src="src/js/test/routers.js"></script>
+    <script src="src/js/test/collections.js"></script>
+    <script src="src/js/test/views.js"></script>
+    <script src="src/js/test/routers.js"></script>
 
-	<script>
-        var controller = new Controller(); // Создаём контроллер
+    <script>
+        var controller = new App.Routers(); // Создаём контроллер
 
-    Backbone.history.start(); // Запускаем HTML5 History push
+        Backbone.history.start(); // Запускаем HTML5 History push
+
+
 
     </script>
 

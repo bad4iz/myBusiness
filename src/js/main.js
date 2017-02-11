@@ -2,7 +2,7 @@
     window.App = {
         Models: {},
         Views: {},
-        Collection: {},
+        Collections: {},
         Router: {}
     };
 

@@ -1,18 +1,7 @@
-/*
-|---------------------------------------------------
-|  Global App View
-|---------------------------------------------------
-*/
-App.Views.App = Backbone.View.extend({
-    initialize: function () {
-        console.log(this.collection.toJSON());
-    }
-});
-
 //////////////////////////////////
 //  наблюдение за менюшкой
 //////////////////////////////////
-var Start = Backbone.View.extend({
+App.Views.Start = Backbone.View.extend({
     el: $("nav"), // DOM элемент widget'а
     events: {
         "click .index": "index", // Обработчик клика  "index"
@@ -29,13 +18,14 @@ var Start = Backbone.View.extend({
         controller.navigate("other", true); // переход на страницу
     },
 });
+var start = new App.Views.Start();
 
 /////////////////////////////////
 //  вид person
 /////////////////////////////////
 
 
-var PersonView = Backbone.View.extend({
+App.Views.PersonView = Backbone.View.extend({
     tagName: 'li',
 
     template: template('person-id'),
@@ -53,7 +43,7 @@ var PersonView = Backbone.View.extend({
 ///////////////////////////////
 //  список видов контактов
 ///////////////////////////////
-var ContactsView = Backbone.View.extend({
+App.Views.ContactsView = Backbone.View.extend({
     initialize: function () {
         this.model.on('destroy', this.remove, this);
     },
@@ -77,7 +67,7 @@ var ContactsView = Backbone.View.extend({
     },
     addOne: function (person) {
         //создавать новый дочерний вид
-        var personView = new PersonView({
+        var personView = new App.Views.PersonView({
             model: person
         });
         // добавлять его в корневой элемент

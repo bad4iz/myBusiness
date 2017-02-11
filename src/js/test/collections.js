@@ -1,8 +1,8 @@
 ///////////////////////////////
 //  колекция контактов
 ///////////////////////////////
-var Contacts = Backbone.Collection.extend({
-    model: Person
+App.Collections.Contacts = Backbone.Collection.extend({
+    model: App.Models.Person
 });
 
 
@@ -20,6 +20,8 @@ var persons = [
     {
         title: 'закежка'
         }
-    ];
+        ];
 
-var contactCollection = new Contacts(persons);
+//var contactCollection = new App.Collections.Contacts(persons);
+
+var contactCollection = new App.Collections.Contacts(persons);
