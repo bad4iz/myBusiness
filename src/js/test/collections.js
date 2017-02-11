@@ -5,23 +5,61 @@ App.Collections.Contacts = Backbone.Collection.extend({
     model: App.Models.Person
 });
 
-
-
-///////////////////////////////////////
-//  заглушка
-//////////////////////////////////////
+///////////////////////////////
+//  заглушка контактов
+///////////////////////////////
 var persons = [
     {
-        title: 'киношка'
-        },
+        name: 'Dima',
+        age: 23,
+        occupation: 'web developer'
+    },
     {
-        title: 'игрулька'
-        },
+        name: 'Вася',
+        age: 18,
+        occupation: 'Супер-Синьер'
+    },
     {
-        title: 'закежка'
-        }
-        ];
-
-//var contactCollection = new App.Collections.Contacts(persons);
+        name: 'Лена',
+        age: 20,
+        occupation: 'бухгалтер'
+    }
+];
 
 var contactCollection = new App.Collections.Contacts(persons);
+
+
+///////////////////////////////
+//  колекция картинок
+///////////////////////////////
+App.Collections.Images = Backbone.Collection.extend({
+    model: App.Models.Image
+});
+
+///////////////////////////////
+//  заглушка картинок
+///////////////////////////////
+var images = [
+    {
+        src: '#',
+        title: '#'
+    },
+    {
+        src: '#',
+        title: '#'
+    },
+    {
+        src: '#',
+        title: '#'
+    },
+    {
+        src: '#',
+        title: '#'
+    },
+    {
+        src: '#',
+        title: '#'
+    }
+];
+
+var imagesCollection = new App.Collections.Images(images);
