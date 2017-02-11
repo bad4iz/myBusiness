@@ -9,6 +9,47 @@ App.Views.App = Backbone.View.extend({
     }
 });
 
+//////////////////////////////////
+//  наблюдение за менюшкой
+//////////////////////////////////
+var Start = Backbone.View.extend({
+    el: $("nav"), // DOM элемент widget'а
+    events: {
+        "click .index": "index", // Обработчик клика  "index"
+        "click .contacts": "contacts", // Обработчик клика  "index"
+        "click .other": "other" // Обработчик клика  "index"
+    },
+    index: function () {
+        controller.navigate("", true); // переход на страницу
+    },
+    contacts: function () {
+        controller.navigate("contacts", true); // переход на страницу
+    },
+    other: function () {
+        controller.navigate("other", true); // переход на страницу
+    },
+});
+
+/////////////////////////////////
+//  вид person
+/////////////////////////////////
+
+
+var PersonView = Backbone.View.extend({
+    tagName: 'li',
+
+    template: template('person-id'),
+
+    initialize: function () {
+        this.render();
+    },
+
+    render: function () {
+        this.$el.html(this.template(this.model.toJSON()));
+        return this;
+    }
+});
+
 ///////////////////////////////
 //  список видов контактов
 ///////////////////////////////
