@@ -69,6 +69,7 @@ App.Views.ContactsView = Backbone.View.extend({
 App.Views.ImageView = Backbone.View.extend({
     tagName: 'div',
 
+// todo засунуть шаблон сюда
     template: template('img'),
 
     initialize: function () {
@@ -129,6 +130,21 @@ App.Views.ImagesView = Backbone.View.extend({
 
 /////////////////////////////////
 //  вид text
+/////////////////////////////////
+App.Views.TextView = Backbone.View.extend({
+    initialize: function () {
+        this.render();
+    },
+
+    render: function () {
+        this.$el.html(this.model.get('text'));
+        return this;
+    }
+});
+
+
+/////////////////////////////////
+//  вид menu
 /////////////////////////////////
 App.Views.TextView = Backbone.View.extend({
     initialize: function () {
