@@ -51,6 +51,11 @@ ul#menu li{
     display: inline-block;
     margin: 0;
     padding: 5px 10px
-
-
+}
+ul#menu li:nth-child(n + 1){
+    border-right: 1px solid rgba(58, 58, 58, .09);
+}
+li#back a{
+    text-decoration: none;
+    color: black;
 }
