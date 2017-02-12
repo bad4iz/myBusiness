@@ -13,7 +13,7 @@ App.Routers = Backbone.Router.extend({
     index: function () {
         var index = $('#index');
 
-            //прячим назад
+        //прячим назад
         $("#other").hide();
 
         // вывод меню
