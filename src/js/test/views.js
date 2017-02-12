@@ -3,20 +3,7 @@
 //////////////////////////////////
 App.Views.Start = Backbone.View.extend({
     el: $("nav"), // DOM элемент widget'а
-    events: {
-        "click .index": "index", // Обработчик клика  "index"
-        "click .contacts": "contacts", // Обработчик клика  "index"
-        "click .other": "other" // Обработчик клика  "index"
-    },
-    index: function () {
-        controller.navigate("", true); // переход на страницу
-    },
-    contacts: function () {
-        controller.navigate("contacts", true); // переход на страницу
-    },
-    other: function () {
-        controller.navigate("other", true); // переход на страницу
-    }
+
 });
 var start = new App.Views.Start();
 
@@ -150,10 +137,10 @@ App.Views.TextView = Backbone.View.extend({
 App.Views.MenuItemView = Backbone.View.extend({
     tagName: 'li',
 
-    attributes : function () {
+    attributes: function () {
         // Return model data
         return {
-            class : this.model.get( 'class' )
+            class: this.model.get('class')
         };
     },
 
@@ -177,6 +164,11 @@ App.Views.MenuView = Backbone.View.extend({
     initialize: function () {
         this.collection.on('add', this.addOne, this);
     },
+    events: {
+        "click .index": "index", // Обработчик клика  "index"
+        "click .contacts": "contacts", // Обработчик клика  "index"
+        "click .other": "other" // Обработчик клика  "index"
+    },
     tagName: 'ul',
     render: function () {
         this.collection.each(this.addOne, this);
@@ -189,6 +181,15 @@ App.Views.MenuView = Backbone.View.extend({
         });
         // добавлять его в корневой элемент
         this.$el.append(menuItemsView.render().el);
+    },
+    index: function () {
+        controller.navigate("", true); // переход на страницу
+    },
+    contacts: function () {
+        controller.navigate("contacts", true); // переход на страницу
+    },
+    other: function () {
+        controller.navigate("other", true); // переход на страницу
     }
 });
 
