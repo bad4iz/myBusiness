@@ -117,7 +117,7 @@ App.Views.MenuItemView = Backbone.View.extend({
         this.render();
     },
     events: {
-        "click": "click" // Обработчик клика
+        // "click": "click" // Обработчик клика
 
     },
     render: function () {
@@ -125,10 +125,10 @@ App.Views.MenuItemView = Backbone.View.extend({
         return this;
     },
     click: function () {
-        menuCollection.each(
-            function(mod){
-                mod.set('class', mod.get('class').replace(" Active", ' ') )});
-        this.model.set('class', this.model.get('class') + ' Active', {validate:true} );
+    menuCollection.each(
+        function(mod){
+            mod.set('class', mod.get('class').replace(" Active", ' ') )});
+    this.model.set('class', this.model.get('class') + ' Active', {validate:true} );
     }
 
 })
@@ -149,6 +149,8 @@ App.Views.MenuView = Backbone.View.extend({
     },
     tagName: 'ul',
     render: function () {
+
+
         this.collection.each(this.addOne, this);
         return this;
     },
@@ -158,14 +160,39 @@ App.Views.MenuView = Backbone.View.extend({
         var menuItemsView = new App.Views.MenuItemView({
             model: item
         });
+
+
         // добавлять его в корневой элемент
         this.$el.append(menuItemsView.render().el);
     },
     index: function () {
-        // this.model.set('class', 'Active', {validate:true} );
+        // удаляем у всех моделей Active
+        menuCollection.each(function(mod){
+            mod.set('class', mod.get('class').replace(" Active", ' ') )
+        });
+
+        // получаем модель меню
+        var modelMenu = menuCollection.models[0];
+
+
+        // добавляем только этой модели Active
+        modelMenu.set('class', modelMenu.get('class') + ' Active', {validate:true} );
+
         controller.navigate("", true); // переход на страницу
     },
     contacts: function () {
+        // удаляем у всех моделей Active
+        menuCollection.each(function(mod){
+            mod.set('class', mod.get('class').replace(" Active", ' ') )
+        });
+
+        // получаем модель меню
+        var modelMenu = menuCollection.models[1];
+
+
+        // добавляем только этой модели Active
+        modelMenu.set('class', modelMenu.get('class') + ' Active', {validate:true} );
+
         controller.navigate("contacts", true); // переход на страницу contacts
     },
     other: function () {
