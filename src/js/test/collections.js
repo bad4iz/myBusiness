@@ -34,8 +34,6 @@ var persons = [
 ///////////////////////////////
 App.Collections.Images = Backbone.Collection.extend({
     model: App.Models.Image
-
-
 });
 
 ///////////////////////////////

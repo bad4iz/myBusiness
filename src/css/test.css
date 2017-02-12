@@ -34,3 +34,9 @@ html, body {
 .slick-next:before {
     color: black;
 }
+
+/*  -------------------    */
+body {
+    margin: 20px;
+    padding: 0;
+}
