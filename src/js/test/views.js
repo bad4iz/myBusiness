@@ -128,6 +128,9 @@ App.Views.ImagesView = Backbone.View.extend({
     }
 });
 
+
+
+
 /////////////////////////////////
 //  вид text
 /////////////////////////////////
@@ -147,12 +150,16 @@ App.Views.TextView = Backbone.View.extend({
 //  вид menu
 /////////////////////////////////
 App.Views.TextView = Backbone.View.extend({
+    tagName: 'li',
+
+    className: this.model.get('class'),
+
     initialize: function () {
         this.render();
     },
 
     render: function () {
-        this.$el.html(this.model.get('text'));
+        this.$el.html(this.model.get('title'));
         return this;
     }
 });

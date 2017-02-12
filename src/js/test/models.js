@@ -41,6 +41,7 @@ App.Models.Text = Backbone.Model.extend({
 App.Models.Menu = Backbone.Model.extend({
     defaults: {
         title: '',
+        class: '',
         href: ''
     }
    //validate
