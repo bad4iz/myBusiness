@@ -13,6 +13,9 @@ App.Routers = Backbone.Router.extend({
     index: function () {
         var index = $('#index');
 
+            //прячим назад
+        $("#other").hide();
+
         // вывод меню
         var menuView = new App.Views.MenuView({collection: menuCollection});
         index.html(menuView.render().el);
@@ -52,6 +55,9 @@ App.Routers = Backbone.Router.extend({
     // вторая страница
     contacts: function () {
         var index = $('#index');
+
+        //прячим назад
+        $("#other").hide();
 
         //вывод контактов
         var contactCollection = new App.Collections.Contacts(persons);
