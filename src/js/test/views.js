@@ -2,7 +2,7 @@
 //  наблюдение за менюшкой
 //////////////////////////////////
 App.Views.Start = Backbone.View.extend({
-    el: $("nav"), // DOM элемент widget'а
+    el: $(".menu"), // DOM элемент widget'а
     events: {
         "click .index": "index", // Обработчик клика  "index"
         "click .contacts": "contacts", // Обработчик клика  "index"
@@ -153,7 +153,7 @@ App.Views.MenuItemView = Backbone.View.extend({
     attributes : function () {
         // Return model data
         return {
-            class : this.model.get( 'myClass' )
+            class : 'menu ' + this.model.get( 'myClass' )
         };
     },
 

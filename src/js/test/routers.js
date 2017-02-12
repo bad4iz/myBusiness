@@ -18,12 +18,12 @@ App.Routers = Backbone.Router.extend({
 
         // выводим img
         var imgsView = new App.Views.ImagesView({collection: imagesCollection });
-        $('#images').html(imgsView.render().el);
+        $('body').append(imgsView.render().el);
 
         // выводим контент
         var text =new App.Models.Text();
         var txtView = new App.Views.TextView({model: text});
-        $('.content').html(txtView.render().el);
+        $('body').append(txtView.render().el);
 
 
     },
