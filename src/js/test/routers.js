@@ -14,7 +14,7 @@ App.Routers = Backbone.Router.extend({
         $("#index").show(); // Показываем нужный
 
         var menuView = new App.Views.MenuView({collection: menuCollection});
-        $('body').html(menuView.render().el);
+        $('body').append(menuView.render().el);
 
         // выводим img
         var imgsView = new App.Views.ImagesView({collection: imagesCollection });
