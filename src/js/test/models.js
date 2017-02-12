@@ -35,9 +35,13 @@ App.Models.Text = Backbone.Model.extend({
 });
 
 
-//
-//// модель меню
-//App.Models.Menu = Backbone.Model.extend({
-//    //validate
-//});
+/////////////////////////////////
+//  модель menu
+/////////////////////////////////
+App.Models.Menu = Backbone.Model.extend({
+    defaults: {
+
+    }
+   //validate
+});
 
