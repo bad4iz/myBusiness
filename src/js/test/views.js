@@ -69,8 +69,8 @@ App.Views.ContactsView = Backbone.View.extend({
 App.Views.ImageView = Backbone.View.extend({
     tagName: 'div',
 
-// todo засунуть шаблон сюда
-    template: template('img'),
+
+    template: _.template('<img src="<%= src %>" alt="<%= alt %>">'),
 
     initialize: function () {
         this.render();
