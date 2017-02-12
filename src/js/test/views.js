@@ -23,8 +23,6 @@ var start = new App.Views.Start();
 /////////////////////////////////
 //  вид person
 /////////////////////////////////
-
-
 App.Views.PersonView = Backbone.View.extend({
     tagName: 'li',
 
@@ -107,3 +105,16 @@ App.Views.ImagesView = Backbone.View.extend({
     }
 });
 
+/////////////////////////////////
+//  вид text
+/////////////////////////////////
+App.Views.TextView = Backbone.View.extend({
+    initialize: function () {
+        this.render();
+    },
+
+    render: function () {
+        this.$el.html(this.model.get('text'));
+        return this;
+    }
+});

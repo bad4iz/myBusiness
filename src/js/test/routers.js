@@ -12,10 +12,16 @@ App.Routers = Backbone.Router.extend({
     index: function () {
         $(".block").hide(); // Прячем все блоки
         $("#index").show(); // Показываем нужный
+
+
+        // выводим img
         var imgsView = new App.Views.ImagesView({collection: imagesCollection });
         $('#images').html(imgsView.render().el);
-        var contactCollection = new App.Collections.Contacts(persons);
 
+        // выводим контент
+        var text =new App.Models.Text();
+        var txtView = new App.Views.TextView({model: text});
+        $('.content').html(txtView.render().el);
 
 
     },
