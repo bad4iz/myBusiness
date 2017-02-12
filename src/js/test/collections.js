@@ -76,3 +76,22 @@ App.Collections.Menu = Backbone.Collection.extend({
     model: App.Models.Menu
 });
 
+///////////////////////////////
+//  заглушка картинок
+///////////////////////////////
+var menu = [
+    {
+        src: '#',
+        title: 'Начало'
+    },
+    {
+        src: '#contacts',
+        title: 'Контакты'
+    },
+    {
+        src: '#other',
+        title: 'Другое'
+    }
+];
+
+var menuCollection = new App.Collections.Menu(menu);
