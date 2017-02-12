@@ -12,7 +12,12 @@ App.Routers = Backbone.Router.extend({
     index: function () {
         $(".block").hide(); // Прячем все блоки
         $("#index").show(); // Показываем нужный
-        //            contactsView.model.destroy();
+        var imgsView = new App.Views.ImagesView({collection: imagesCollection });
+        $('#images').html(imgsView.render().el);
+        var contactCollection = new App.Collections.Contacts(persons);
+
+
+
     },
 
     contacts: function () {

@@ -26,7 +26,7 @@ var persons = [
     }
 ];
 
-var contactCollection = new App.Collections.Contacts(persons);
+// var contactCollection = new App.Collections.Contacts(persons);
 
 
 ///////////////////////////////

@@ -14,7 +14,11 @@ App.Models.Person = Backbone.Model.extend({
 //  модель картинок
 /////////////////////////////////
 App.Models.Image = Backbone.Model.extend({
-    //validate
+    defaults: {
+        src: 'img/backbone.png',
+        title: 'backbone',
+        alt: 'backbone'
+    }
 });
 
 

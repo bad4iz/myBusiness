@@ -16,7 +16,7 @@ App.Views.Start = Backbone.View.extend({
     },
     other: function () {
         controller.navigate("other", true); // переход на страницу
-    },
+    }
 });
 var start = new App.Views.Start();
 
@@ -41,25 +41,13 @@ App.Views.PersonView = Backbone.View.extend({
 });
 
 ///////////////////////////////
-//  список видов контактов
+// Вид списка контактов
 ///////////////////////////////
 App.Views.ContactsView = Backbone.View.extend({
     initialize: function () {
-        this.model.on('destroy', this.remove, this);
-    },
-    tagName: 'ul',
-
-    events: {
-        'click nav': 'destroy'
-    },
-    destroy: function () {
-        console.lof("destroy: function ()");
-        this.model.destroy();
-    },
-
-    initialize: function () {
         this.collection.on('add', this.addOne, this);
     },
+    tagName: 'ul',
 
     render: function () {
         this.collection.each(this.addOne, this);
@@ -72,8 +60,50 @@ App.Views.ContactsView = Backbone.View.extend({
         });
         // добавлять его в корневой элемент
         this.$el.append(personView.render().el);
-    },
-    remove: function () {
-        this.$el.remove();
     }
 });
+
+
+///////////////////////////////
+// Вид картинки
+///////////////////////////////
+
+App.Views.ImageView = Backbone.View.extend({
+    tagName: 'div',
+
+    template: template('img'),
+
+    initialize: function () {
+        this.render();
+    },
+
+    render: function () {
+        this.$el.html(this.template(this.model.toJSON()));
+        return this;
+    }
+});
+
+
+///////////////////////////////
+// Вид списка картинок
+///////////////////////////////
+App.Views.ImagesView = Backbone.View.extend({
+    initialize: function () {
+        this.collection.on('add', this.addOne, this);
+    },
+    tagName: 'section',
+    className: 'center slider',
+    render: function () {
+        this.collection.each(this.addOne, this);
+        return this;
+    },
+    addOne: function (mod) {
+        //создавать новый дочерний вид
+        var imageView = new App.Views.ImageView({
+            model: mod
+        });
+        // добавлять его в корневой элемент
+        this.$el.append(imageView.render().el);
+    }
+});
+
