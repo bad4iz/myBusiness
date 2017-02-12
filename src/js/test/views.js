@@ -174,6 +174,7 @@ App.Views.MenuView = Backbone.View.extend({
         this.collection.each(this.addOne, this);
         return this;
     },
+    id: 'menu',
     addOne: function (item) {
         //создавать новый дочерний вид
         var menuItemsView = new App.Views.MenuItemView({
