@@ -40,7 +40,7 @@ App.Models.Text = Backbone.Model.extend({
 /////////////////////////////////
 App.Models.MenuItem = Backbone.Model.extend({
     defaults: {
-        myClass: 'class',
+        class: 'class',
         title: 'title',
         href: ''
     }

@@ -9,39 +9,84 @@ App.Routers = Backbone.Router.extend({
         "other": "other" // Блок другой
     },
 
+    // первая страница
     index: function () {
-        $(".block").hide(); // Прячем все блоки
-        $("#index").show(); // Показываем нужный
+        var index = $('#index');
 
+        //прячим назад
+        $("#other").hide();
+
+        // вывод меню
         var menuView = new App.Views.MenuView({collection: menuCollection});
-        $('body').append(menuView.render().el);
+        index.html(menuView.render().el);
 
         // выводим img
-        var imgsView = new App.Views.ImagesView({collection: imagesCollection });
-        $('body').append(imgsView.render().el);
+        var imgsView = new App.Views.ImagesView({collection: imagesCollection});
+        index.append(imgsView.render().el);
 
         // выводим контент
-        var text =new App.Models.Text();
+        var text = new App.Models.Text();
         var txtView = new App.Views.TextView({model: text});
-        $('body').append(txtView.render().el);
+        index.append(txtView.render().el);
+        index.append(txtView.render().el);
+        index.append(txtView.render().el);
 
-
-    },
-
-    contacts: function () {
-        $(".block").hide();
-        $("#contacts").show();
-        var contactCollection = new App.Collections.Contacts(persons);
-
-        var contactsView = new App.Views.ContactsView({
-            collection: contactCollection
+        //каруселька
+        $(".regular").slick({
+            dots: true,
+            infinite: true,
+            slidesToShow: 3,
+            slidesToScroll: 3
         });
-
-        $('#list-contacts').html(contactsView.render().el);
+        $(".center").slick({
+            dots: true,
+            infinite: true,
+            centerMode: true,
+            slidesToShow: 3,
+            slidesToScroll: 3
+        });
+        $(".variable").slick({
+            dots: true,
+            infinite: true,
+            variableWidth: true
+        });
     },
 
+    // вторая страница
+    contacts: function () {
+        var index = $('#index');
+
+        //прячим назад
+        $("#other").hide();
+
+        //вывод контактов
+        var contactCollection = new App.Collections.Contacts(persons);
+        var contactsView = new App.Views.ContactsView({collection: contactCollection});
+        index.html(contactsView.render().el);
+
+        // выводим контент
+        var text = new App.Models.Text();
+        var txtView = new App.Views.TextView({model: text});
+        index.append(txtView.render().el);
+        index.append(txtView.render().el);
+        index.append(txtView.render().el);
+
+
+        // вывод меню
+        var menuView = new App.Views.MenuView({collection: menuCollection});
+        index.append(menuView.render().el);
+    },
+
+    // третья страница
     other: function () {
-        $(".block").hide();
+        var index = $('#index');
+
         $("#other").show();
+
+        // выводим контент
+        var text = new App.Models.Text();
+        var txtView = new App.Views.TextView({model: text});
+        index.html(txtView.render().el);
+        index.html(txtView.render().el);
     }
 });
