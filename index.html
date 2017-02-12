@@ -17,13 +17,13 @@
     </div>
 
     <div id="index" class="block">
-        <div>
-            <ul>
+        <nav>
+            <ul class="menu">
                 <li class="index  Active">Главная</li>
                 <li class="contacts">Контакты</li>
                 <li class="other">Другое</li>
             </ul>
-        </div>
+        </nav>
 
         <div id="images"></div>
         <div class="content">Далеко-далеко за словесными горами в стране, гласных и согласных живут рыбные.</div>
@@ -39,7 +39,7 @@
         </script>
         <div id="list-contacts"></div>
         <nav>
-            <ul>
+            <ul class="menu">
                 <li class="index">Главная</li>
                 <li class="contacts Active">Контакты</li>
                 <li class="other">Другое</li>
@@ -72,8 +72,9 @@
 
         Backbone.history.start(); // Запускаем HTML5 History push
 
-        //прослушка за меню
+
         var start = new App.Views.Start();
+
 
         //каруселька
         $(document).on('ready', function() {

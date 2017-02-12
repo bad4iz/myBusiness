@@ -14,16 +14,16 @@ App.Routers = Backbone.Router.extend({
         $("#index").show(); // Показываем нужный
 
         var menuView = new App.Views.MenuView({collection: menuCollection});
-        $('body').append(menuView.render().el);
+        $('#index').append(menuView.render().el);
 
         // выводим img
         var imgsView = new App.Views.ImagesView({collection: imagesCollection });
-        $('body').append(imgsView.render().el);
+        $('#index').append(imgsView.render().el);
 
         // выводим контент
         var text =new App.Models.Text();
         var txtView = new App.Views.TextView({model: text});
-        $('body').append(txtView.render().el);
+        $('#index').append(txtView.render().el);
 
 
     },

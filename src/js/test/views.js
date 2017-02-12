@@ -1,24 +1,3 @@
-//////////////////////////////////
-//  наблюдение за менюшкой
-//////////////////////////////////
-App.Views.Start = Backbone.View.extend({
-    el: $("nav"), // DOM элемент widget'а
-    events: {
-        "click .index": "index", // Обработчик клика  "index"
-        "click .contacts": "contacts", // Обработчик клика  "index"
-        "click .other": "other" // Обработчик клика  "index"
-    },
-    index: function () {
-        controller.navigate("", true); // переход на страницу
-    },
-    contacts: function () {
-        controller.navigate("contacts", true); // переход на страницу
-    },
-    other: function () {
-        controller.navigate("other", true); // переход на страницу
-    }
-});
-var start = new App.Views.Start();
 
 /////////////////////////////////
 //  вид person
@@ -177,11 +156,22 @@ App.Views.MenuView = Backbone.View.extend({
     initialize: function () {
         this.collection.on('add', this.addOne, this);
     },
-    tagName: 'ul',
+    //прослушка за меню
+    events: {
+        "click .index": "index", // Обработчик клика  "index"
+        "click .contacts": "contacts", // Обработчик клика  "contacts"
+        "click .other": "other" // Обработчик клика  "other"
+    },
+
+    tagName: 'nav',
+
+    id: 'menu',
+
     render: function () {
         this.collection.each(this.addOne, this);
         return this;
     },
+
     addOne: function (item) {
         //создавать новый дочерний вид
         var menuItemsView = new App.Views.MenuItemView({
@@ -189,6 +179,14 @@ App.Views.MenuView = Backbone.View.extend({
         });
         // добавлять его в корневой элемент
         this.$el.append(menuItemsView.render().el);
+    },
+    index: function () {
+        controller.navigate("", true); // переход на страницу
+    },
+    contacts: function () {
+        controller.navigate("contacts", true); // переход на страницу
+    },
+    other: function () {
+        controller.navigate("other", true); // переход на страницу
     }
 });
-
