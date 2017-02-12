@@ -140,7 +140,7 @@ App.Views.MenuView = Backbone.View.extend({
         "click .other": "other" // Обработчик клика  "other"
     },
 
-    tagName: 'u',
+    tagName: 'ul',
 
     id: 'menu',
 
