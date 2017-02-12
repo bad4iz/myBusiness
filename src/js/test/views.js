@@ -1,12 +1,3 @@
-//////////////////////////////////
-//  наблюдение за менюшкой
-//////////////////////////////////
-App.Views.Start = Backbone.View.extend({
-    el: $("nav"), // DOM элемент widget'а
-
-});
-var start = new App.Views.Start();
-
 /////////////////////////////////
 //  вид person
 /////////////////////////////////
@@ -56,7 +47,6 @@ App.Views.ContactsView = Backbone.View.extend({
 App.Views.ImageView = Backbone.View.extend({
     tagName: 'div',
 
-
     template: _.template('<img src="<%= src %>" alt="<%= alt %>">'),
 
     initialize: function () {
@@ -90,29 +80,8 @@ App.Views.ImagesView = Backbone.View.extend({
         });
         // добавлять его в корневой элемент
         this.$el.append(imageView.render().el);
-        this.carusel();
     },
-    carusel: function () {
-        //каруселька
-        $(".regular").slick({
-            dots: true,
-            infinite: true,
-            slidesToShow: 3,
-            slidesToScroll: 3
-        });
-        $(".center").slick({
-            dots: true,
-            infinite: true,
-            centerMode: true,
-            slidesToShow: 3,
-            slidesToScroll: 3
-        });
-        $(".variable").slick({
-            dots: true,
-            infinite: true,
-            variableWidth: true
-        });
-    }
+
 });
 
 
@@ -187,10 +156,10 @@ App.Views.MenuView = Backbone.View.extend({
         controller.navigate("", true); // переход на страницу
     },
     contacts: function () {
-        controller.navigate("contacts", true); // переход на страницу
+        controller.navigate("contacts", true); // переход на страницу contacts
     },
     other: function () {
-        controller.navigate("other", true); // переход на страницу
+        controller.navigate("other", true); // переход на страницу other
     }
 });
 
