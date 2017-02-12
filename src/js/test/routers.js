@@ -13,21 +13,18 @@ App.Routers = Backbone.Router.extend({
     index: function () {
         var index = $('#index');
 
-        //прячим назад
-        $("#other").hide();
-
-        // вывод меню
+        // menu
         var menuView = new App.Views.MenuView({collection: menuCollection});
-        index.html(menuView.render().el);
-
-        // выводим img
+        // img
         var imgsView = new App.Views.ImagesView({collection: imagesCollection});
-        index.append(imgsView.render().el);
-
-        // выводим контент
+        // text
         var text = new App.Models.Text();
         var txtView = new App.Views.TextView({model: text});
-        index.append(txtView.render().el);
+
+        $("#other").hide();  //прячим назад
+        index.html(menuView.render().el);  // вывод меню
+        index.append(imgsView.render().el);  // выводим img
+        index.append(txtView.render().el); // выводим контент
 
         //каруселька
         $(".center").slick({
@@ -44,35 +41,29 @@ App.Routers = Backbone.Router.extend({
     // вторая страница
     contacts: function () {
         var index = $('#index');
-
-        //прячим назад
-        $("#other").hide();
-
-        //вывод контактов
+        // contacts
         var contactCollection = new App.Collections.Contacts(persons);
         var contactsView = new App.Views.ContactsView({collection: contactCollection});
-        index.html(contactsView.render().el);
-
-        // выводим контент
+        // text
         var text = new App.Models.Text();
         var txtView = new App.Views.TextView({model: text});
-        index.append(txtView.render().el);
-
-
-        // вывод меню
+        // menu
         var menuView = new App.Views.MenuView({collection: menuCollection});
-        index.append(menuView.render().el);
+
+        $("#other").hide();  //прячим назад
+        index.html(contactsView.render().el); //вывод контактов
+        index.append(txtView.render().el); // выводим контент
+        index.append(menuView.render().el); // вывод меню
     },
 
     // третья страница
     other: function () {
         var index = $('#index');
-
-        $("#other").show();
-
-        // выводим контент
+        // текст
         var text = new App.Models.Text();
         var txtView = new App.Views.TextView({model: text});
-        index.html(txtView.render().el);
+
+        $("#other").show(); //показ назад
+        index.html(txtView.render().el); // выводим контент
     }
 });

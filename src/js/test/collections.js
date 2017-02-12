@@ -26,9 +26,6 @@ var persons = [
     }
 ];
 
-// var contactCollection = new App.Collections.Contacts(persons);
-
-
 ///////////////////////////////
 //  колекция картинок
 ///////////////////////////////

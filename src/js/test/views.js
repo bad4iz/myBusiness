@@ -80,7 +80,7 @@ App.Views.ImagesView = Backbone.View.extend({
         });
         // добавлять его в корневой элемент
         this.$el.append(imageView.render().el);
-    },
+    }
 
 });
 
@@ -107,7 +107,6 @@ App.Views.MenuItemView = Backbone.View.extend({
     tagName: 'li',
 
     attributes: function () {
-        // Return model data
         return {
             class: this.model.get('class')
         };
@@ -116,23 +115,12 @@ App.Views.MenuItemView = Backbone.View.extend({
     initialize: function () {
         this.render();
     },
-    events: {
-        // "click": "click" // Обработчик клика
 
-    },
     render: function () {
         this.$el.html(this.model.get('title'));
         return this;
-    },
-    click: function () {
-    menuCollection.each(
-        function(mod){
-            mod.set('class', mod.get('class').replace(" Active", ' ') )});
-    this.model.set('class', this.model.get('class') + ' Active', {validate:true} );
     }
-
-})
-;
+});
 
 
 ///////////////////////////////
@@ -142,59 +130,62 @@ App.Views.MenuView = Backbone.View.extend({
     initialize: function () {
         this.collection.on('add', this.addOne, this);
     },
+
     events: {
         "click .index": "index", // Обработчик клика  "index"
         "click .contacts": "contacts", // Обработчик клика  "index"
         "click .other": "other" // Обработчик клика  "index"
     },
+
     tagName: 'ul',
+
+    id: 'menu',
+
     render: function () {
-
-
         this.collection.each(this.addOne, this);
         return this;
     },
-    id: 'menu',
+
     addOne: function (item) {
         //создавать новый дочерний вид
         var menuItemsView = new App.Views.MenuItemView({
             model: item
         });
 
-
         // добавлять его в корневой элемент
         this.$el.append(menuItemsView.render().el);
     },
+
     index: function () {
+        // получаем модель меню
+        var modelMenu = menuCollection.models[0];
+
         // удаляем у всех моделей Active
         menuCollection.each(function(mod){
             mod.set('class', mod.get('class').replace(" Active", ' ') )
         });
-
-        // получаем модель меню
-        var modelMenu = menuCollection.models[0];
-
 
         // добавляем только этой модели Active
         modelMenu.set('class', modelMenu.get('class') + ' Active', {validate:true} );
 
         controller.navigate("", true); // переход на страницу
     },
+
     contacts: function () {
+        // получаем модель меню
+        var modelMenu = menuCollection.models[1];
+
         // удаляем у всех моделей Active
         menuCollection.each(function(mod){
             mod.set('class', mod.get('class').replace(" Active", ' ') )
         });
-
-        // получаем модель меню
-        var modelMenu = menuCollection.models[1];
-
 
         // добавляем только этой модели Active
         modelMenu.set('class', modelMenu.get('class') + ' Active', {validate:true} );
 
         controller.navigate("contacts", true); // переход на страницу contacts
     },
+
     other: function () {
         controller.navigate("other", true); // переход на страницу other
     }
