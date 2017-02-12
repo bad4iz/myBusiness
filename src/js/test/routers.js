@@ -34,7 +34,10 @@ App.Routers = Backbone.Router.extend({
             dots: true,
             infinite: true,
             centerMode: true,
-            slidesToShow: 2
+            slidesToShow: 2,
+            slidesToScroll: 1,
+            autoplay: true,
+            autoplaySpeed: 1000
         });
     },
 
