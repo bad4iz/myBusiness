@@ -39,4 +39,18 @@ html, body {
 body {
     margin: 40px;
     padding: 0;
+
+}
+ul#menu{
+    padding: 0;
+    display: inline-block;
+    border: 1px solid rgba(58, 58, 58, .09);
+    border-radius: 3px
+}
+ul#menu li{
+    display: inline-block;
+    margin: 0;
+    padding: 5px 10px
+
+
 }
