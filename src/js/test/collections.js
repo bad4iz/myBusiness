@@ -41,23 +41,27 @@ App.Collections.Images = Backbone.Collection.extend({
 ///////////////////////////////
 var images = [
     {
-        src: '#',
+        src: 'img/backbone.png',
         title: '#'
     },
     {
-        src: '#',
+        src: 'img/backbone1.png',
         title: '#'
     },
     {
-        src: '#',
+        src: 'img/backbone2.jpg',
         title: '#'
     },
     {
-        src: '#',
+        src: 'img/backbone3.jpg',
         title: '#'
     },
     {
-        src: '#',
+        src: 'img/backbone4.png',
+        title: '#'
+    },
+    {
+        src: 'img/le.jpg',
         title: '#'
     }
 ];
