@@ -17,42 +17,20 @@
     </div>
 
     <div id="index" class="block">
-        <nav>
-            <ul class="menu">
-                <li class="index  Active">Главная</li>
-                <li class="contacts">Контакты</li>
-                <li class="other">Другое</li>
-            </ul>
-        </nav>
 
-        <div id="images"></div>
-        <div class="content">Далеко-далеко за словесными горами в стране, гласных и согласных живут рыбные.</div>
-        <div class="content">Далеко-далеко за словесными горами в стране, гласных и согласных живут рыбные.</div>
-    </div>
-
-    <div id="contacts" class="block">
         <div class="content">Далеко-далеко за словесными горами в стране, гласных и согласных живут рыбные.</div>
         <script id="person-id" type="text/template">
             <strong><%= name %></strong> (
             <%= age %>) -
                 <%= occupation %>
         </script>
-        <div id="list-contacts"></div>
-        <nav>
-            <ul class="menu">
-                <li class="index">Главная</li>
-                <li class="contacts Active">Контакты</li>
-                <li class="other">Другое</li>
-            </ul>
-        </nav>
     </div>
     <div id="other" class="block">
-        <div class="content">Далеко-далеко за словесными горами в стране, гласных и согласных живут рыбные.</div>
-        <nav>
+        <div class="menu">
             <ul>
                 <li id="back"><a href="javascript:history.back();">Назад</a></li>
             </ul>
-        </nav>
+        </div>
 
     </div>
 
@@ -76,27 +54,27 @@
         var start = new App.Views.Start();
 
 
-        //каруселька
-        $(document).on('ready', function() {
-            $(".regular").slick({
-                dots: true,
-                infinite: true,
-                slidesToShow: 3,
-                slidesToScroll: 3
-            });
-            $(".center").slick({
-                dots: true,
-                infinite: true,
-                centerMode: true,
-                slidesToShow: 3,
-                slidesToScroll: 3
-            });
-            $(".variable").slick({
-                dots: true,
-                infinite: true,
-                variableWidth: true
-            });
-        });
+//        //каруселька
+//        $(document).on('ready', function() {
+//            $(".regular").slick({
+//                dots: true,
+//                infinite: true,
+//                slidesToShow: 3,
+//                slidesToScroll: 3
+//            });
+//            $(".center").slick({
+//                dots: true,
+//                infinite: true,
+//                centerMode: true,
+//                slidesToShow: 3,
+//                slidesToScroll: 3
+//            });
+//            $(".variable").slick({
+//                dots: true,
+//                infinite: true,
+//                variableWidth: true
+//            });
+//        });
 
     </script>
 
