@@ -9,7 +9,6 @@ App.Views.Start = Backbone.View.extend({
         "click .other": "other" // Обработчик клика  "index"
     },
     index: function () {
-        console.log(this.$el);
         controller.navigate("", true); // переход на страницу
     },
     contacts: function () {

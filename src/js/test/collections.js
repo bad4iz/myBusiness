@@ -67,3 +67,12 @@ var images = [
 ];
 
 var imagesCollection = new App.Collections.Images(images);
+
+
+///////////////////////////////
+//  колекция картинок
+///////////////////////////////
+App.Collections.Menu = Backbone.Collection.extend({
+    model: App.Models.Menu
+});
+
