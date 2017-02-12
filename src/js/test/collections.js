@@ -73,7 +73,7 @@ var imagesCollection = new App.Collections.Images(images);
 //  колекция картинок
 ///////////////////////////////
 App.Collections.Menu = Backbone.Collection.extend({
-    model: App.Models.Menu
+    model: App.Models.MenuItem
 });
 
 ///////////////////////////////
@@ -82,17 +82,17 @@ App.Collections.Menu = Backbone.Collection.extend({
 var menu = [
     {
         src: '#',
-        class: 'index',
+        myClass: 'index',
         title: 'Начало'
     },
     {
         src: '#contacts',
-        class: 'contacts',
+        myClass: 'contacts',
         title: 'Контакты'
     },
     {
         src: '#other',
-        class: 'other',
+        myClass: 'other',
         title: 'Другое'
     }
 ];

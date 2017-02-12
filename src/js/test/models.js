@@ -36,12 +36,12 @@ App.Models.Text = Backbone.Model.extend({
 
 
 /////////////////////////////////
-//  модель menu
+//  модель пункта menu
 /////////////////////////////////
-App.Models.Menu = Backbone.Model.extend({
+App.Models.MenuItem = Backbone.Model.extend({
     defaults: {
-        title: '',
-        class: '',
+        myClass: 'class',
+        title: 'title',
         href: ''
     }
    //validate

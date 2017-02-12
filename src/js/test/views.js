@@ -129,8 +129,6 @@ App.Views.ImagesView = Backbone.View.extend({
 });
 
 
-
-
 /////////////////////////////////
 //  вид text
 /////////////////////////////////
@@ -147,19 +145,50 @@ App.Views.TextView = Backbone.View.extend({
 
 
 /////////////////////////////////
-//  вид menu
+//  вид пункта menu
 /////////////////////////////////
-App.Views.TextView = Backbone.View.extend({
+App.Views.MenuItemView = Backbone.View.extend({
     tagName: 'li',
 
-    className: this.model.get('class'),
+    attributes : function () {
+        // Return model data
+        return {
+            class : this.model.get( 'myClass' )
+        };
+    },
 
     initialize: function () {
         this.render();
+        console.log(this.model.myClass);
     },
 
     render: function () {
         this.$el.html(this.model.get('title'));
         return this;
     }
+})
+;
+
+
+///////////////////////////////
+// Вид списка картинок
+///////////////////////////////
+App.Views.MenuView = Backbone.View.extend({
+    initialize: function () {
+        this.collection.on('add', this.addOne, this);
+    },
+    tagName: 'ul',
+    render: function () {
+        this.collection.each(this.addOne, this);
+        return this;
+    },
+    addOne: function (item) {
+        //создавать новый дочерний вид
+        var menuItemsView = new App.Views.MenuItemView({
+            model: item
+        });
+        // добавлять его в корневой элемент
+        this.$el.append(menuItemsView.render().el);
+    }
 });
+
