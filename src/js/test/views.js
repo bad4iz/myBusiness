@@ -115,13 +115,22 @@ App.Views.MenuItemView = Backbone.View.extend({
 
     initialize: function () {
         this.render();
-        console.log(this.model.myClass);
     },
+    events: {
+        "click": "click" // Обработчик клика
 
+    },
     render: function () {
         this.$el.html(this.model.get('title'));
         return this;
+    },
+    click: function () {
+        menuCollection.each(
+            function(mod){
+                mod.set('class', mod.get('class').replace(" Active", ' ') )});
+        this.model.set('class', this.model.get('class') + ' Active', {validate:true} );
     }
+
 })
 ;
 
@@ -153,6 +162,7 @@ App.Views.MenuView = Backbone.View.extend({
         this.$el.append(menuItemsView.render().el);
     },
     index: function () {
+        // this.model.set('class', 'Active', {validate:true} );
         controller.navigate("", true); // переход на страницу
     },
     contacts: function () {

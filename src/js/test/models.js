@@ -43,7 +43,9 @@ App.Models.MenuItem = Backbone.Model.extend({
         class: 'class',
         title: 'title',
         href: ''
+    },
+    validate: function( attrs ) {
+
     }
-   //validate
 });
 

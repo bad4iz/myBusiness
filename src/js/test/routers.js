@@ -28,8 +28,6 @@ App.Routers = Backbone.Router.extend({
         var text = new App.Models.Text();
         var txtView = new App.Views.TextView({model: text});
         index.append(txtView.render().el);
-        index.append(txtView.render().el);
-        index.append(txtView.render().el);
 
         //каруселька
         $(".center").slick({
@@ -56,8 +54,6 @@ App.Routers = Backbone.Router.extend({
         var text = new App.Models.Text();
         var txtView = new App.Views.TextView({model: text});
         index.append(txtView.render().el);
-        index.append(txtView.render().el);
-        index.append(txtView.render().el);
 
 
         // вывод меню
@@ -74,7 +70,6 @@ App.Routers = Backbone.Router.extend({
         // выводим контент
         var text = new App.Models.Text();
         var txtView = new App.Views.TextView({model: text});
-        index.html(txtView.render().el);
         index.html(txtView.render().el);
     }
 });

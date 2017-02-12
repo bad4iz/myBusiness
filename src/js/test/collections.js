@@ -82,7 +82,7 @@ App.Collections.Menu = Backbone.Collection.extend({
 var menu = [
     {
         src: '#',
-        class: 'index',
+        class: 'index Active',
         title: 'Начало'
     },
     {
