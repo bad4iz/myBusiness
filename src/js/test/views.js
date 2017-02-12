@@ -46,9 +46,6 @@ App.Views.ContactsView = Backbone.View.extend({
 ///////////////////////////////
 
 App.Views.ImageView = Backbone.View.extend({
-    tagName: 'div',
-
-
     template: _.template('<img src="<%= src %>" alt="<%= alt %>">'),
 
     initialize: function () {
@@ -143,7 +140,7 @@ App.Views.MenuView = Backbone.View.extend({
         "click .other": "other" // Обработчик клика  "other"
     },
 
-    tagName: 'nav',
+    tagName: 'u',
 
     id: 'menu',
 
