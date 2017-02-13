@@ -78,18 +78,18 @@ App.Collections.Menu = Backbone.Collection.extend({
 ///////////////////////////////
 var menu = [
     {
-        src: '#',
-        class: 'index Active',
+        href: '#',
+        myclass: 'index listener Active',
         title: 'Начало'
     },
     {
-        src: '#contacts',
-        class: 'contacts',
+        href: '#contacts',
+        myclass: 'contacts listener',
         title: 'Контакты'
     },
     {
-        src: '#other',
-        class: 'other',
+        href: '#other',
+        myclass: 'other',
         title: 'Другое'
     }
 ];

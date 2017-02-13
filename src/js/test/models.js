@@ -40,12 +40,12 @@ App.Models.Text = Backbone.Model.extend({
 /////////////////////////////////
 App.Models.MenuItem = Backbone.Model.extend({
     defaults: {
-        class: 'class',
+        myclass: 'class',
         title: 'title',
         href: ''
     },
     validate: function( attrs ) {
-        if ( ! $.trim(attrs.class) ) {
+        if ( ! $.trim(attrs.myclass) ) {
             return 'Имя класса должно быть валидным!';
         }
     }

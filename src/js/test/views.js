@@ -29,6 +29,7 @@ App.Views.ContactsView = Backbone.View.extend({
         this.collection.each(this.addOne, this);
         return this;
     },
+
     addOne: function (person) {
         //создавать новый дочерний вид
         var personView = new App.Views.PersonView({
@@ -67,12 +68,16 @@ App.Views.ImagesView = Backbone.View.extend({
     initialize: function () {
         this.collection.on('add', this.addOne, this);
     },
+
     tagName: 'section',
+
     className: 'center slider',
+
     render: function () {
         this.collection.each(this.addOne, this);
         return this;
     },
+
     addOne: function (mod) {
         //создавать новый дочерний вид
         var imageView = new App.Views.ImageView({
@@ -100,16 +105,16 @@ App.Views.TextView = Backbone.View.extend({
 });
 
 
-/////////////////////////////////
+/////////////////////////////////listener
 //  вид пункта menu
 /////////////////////////////////
 App.Views.MenuItemView = Backbone.View.extend({
     tagName: 'li',
 
-    attributes: function () {
-        return {
-            class: this.model.get('class')
-        };
+    template: _.template('<a class="<%= myclass %>" href="<%= href %>"> <%= title %></a>'),
+
+    events: {
+        "click .listener": "clicks" // Обработчик клика
     },
 
     initialize: function () {
@@ -117,9 +122,21 @@ App.Views.MenuItemView = Backbone.View.extend({
     },
 
     render: function () {
-        this.$el.html(this.model.get('title'));
+        this.$el.html(this.template(this.model.toJSON()));
         return this;
+    },
+
+    clicks: function () {
+        // очищаем Active в коллекции
+        menuCollection.each(
+            function(mod){
+                mod.set('myclass', mod.get('myclass').replace(" Active", '') )
+            });
+
+        // добавляем Active этой модели
+        this.model.set('myclass', this.model.get('myclass') + ' Active', {validate:true} );
     }
+
 });
 
 
@@ -127,16 +144,6 @@ App.Views.MenuItemView = Backbone.View.extend({
 // Вид списка картинок
 ///////////////////////////////
 App.Views.MenuView = Backbone.View.extend({
-    initialize: function () {
-        this.collection.on('add', this.addOne, this);
-    },
-
-    events: {
-        "click .index": "index", // Обработчик клика  "index"
-        "click .contacts": "contacts", // Обработчик клика  "index"
-        "click .other": "other" // Обработчик клика  "index"
-    },
-
     tagName: 'ul',
 
     id: 'menu',
@@ -154,40 +161,7 @@ App.Views.MenuView = Backbone.View.extend({
 
         // добавлять его в корневой элемент
         this.$el.append(menuItemsView.render().el);
-    },
-
-    index: function () {
-        // получаем модель меню
-        var modelMenu = menuCollection.models[0];
-
-        // удаляем у всех моделей Active
-        menuCollection.each(function(mod){
-            mod.set('class', mod.get('class').replace(" Active", ' ') )
-        });
-
-        // добавляем только этой модели Active
-        modelMenu.set('class', modelMenu.get('class') + ' Active', {validate:true} );
-
-        controller.navigate("", true); // переход на страницу
-    },
-
-    contacts: function () {
-        // получаем модель меню
-        var modelMenu = menuCollection.models[1];
-
-        // удаляем у всех моделей Active
-        menuCollection.each(function(mod){
-            mod.set('class', mod.get('class').replace(" Active", ' ') )
-        });
-
-        // добавляем только этой модели Active
-        modelMenu.set('class', modelMenu.get('class') + ' Active', {validate:true} );
-
-        controller.navigate("contacts", true); // переход на страницу contacts
-    },
-
-    other: function () {
-        controller.navigate("other", true); // переход на страницу other
     }
+
 });
 
