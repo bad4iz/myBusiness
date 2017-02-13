@@ -4,10 +4,9 @@
 App.Routers = Backbone.Router.extend({
     routes: {
         "": "index", // Пустой hash-тэг
-        "#": "index", // Начальная страница
-        "#": "index", // Начальная страница
         "contacts": "contacts", // Блок контактов
-        "other": "other" // Блок другой
+        "other": "other", // Блок другой
+        "*oth": "index" // Блок другой
     },
 
     // первая страница
