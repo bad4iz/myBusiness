@@ -41,6 +41,8 @@ require.config({
         'peoplesView': 'test/views/peoplesView',
         'textView': 'test/views/textView',
 
+        'indexView': 'test/views/indexView',
+
 
         // route
         'controller': 'test/routers/Controller'

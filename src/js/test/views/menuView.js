@@ -3,6 +3,7 @@
  */
 define(['menuItemView', 'backbone'], function (MenuItemView, Backbone) {
     var MenuView = Backbone.View.extend({
+
         tagName: 'ul',
 
         id: 'menu',

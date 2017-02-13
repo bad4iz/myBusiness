@@ -1,7 +1,7 @@
 define(['personView', 'backbone'], function (PersonView, Backbone) {
     var PeopleView = Backbone.View.extend({
         initialize: function () {
-            this.collection.on('add', this.addOne, this);
+            this.render();
         },
         tagName: 'ul',
 

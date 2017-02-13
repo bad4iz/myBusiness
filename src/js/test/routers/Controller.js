@@ -7,6 +7,9 @@ define(
         'textView',
         'peoplesView',
 
+
+        'indexView',
+
         'peopleCollection',
         'imageCollection',
         'menuCollection',
@@ -17,6 +20,8 @@ define(
                  Text,
                  TextView,
                  PeoplesView,
+
+                 IndexView,
 
                  PeopleCollection,
                  ImageCollection,
@@ -86,6 +91,7 @@ define(
         var imagesCollection = new ImageCollection(images);
         var menuCollection = new MenuCollection(menu);
         var contactCollection = new PeopleCollection(persons);
+        var text = new Text();
 
 
         // menu
@@ -93,7 +99,6 @@ define(
         // img
         var imgsView = new ImagesView({collection: imagesCollection});
         // text
-        var text = new Text();
         var txtView = new TextView({model: text});
         // contacts
         var contactsView = new PeoplesView({collection: contactCollection});
@@ -109,23 +114,7 @@ define(
 
             // первая страница
             index: function () {
-                var index = $('#index');
-
-                $("#other").hide();  //прячим назад
-                index.html(menuView.render().el);  // вывод меню
-                index.append(imgsView.render().el);  // выводим img
-                index.append(txtView.render().el); // выводим контент
-
-                //каруселька
-                $(".center").slick({
-                    dots: true,
-                    infinite: true,
-                    centerMode: true,
-                    slidesToShow: 2,
-                    slidesToScroll: 1,
-                    autoplay: true,
-                    autoplaySpeed: 1000
-                });
+                new IndexView;
             },
 
             // вторая страница

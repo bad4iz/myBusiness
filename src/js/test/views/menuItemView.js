@@ -1,5 +1,8 @@
 define(['backbone'], function (Backbone) {
     var MenuItemView = Backbone.View.extend({
+        initialize: function () {
+            this.render();
+        },
         tagName: 'li',
 
         id: 'menu',
@@ -8,10 +11,6 @@ define(['backbone'], function (Backbone) {
 
         events: {
             "click .listener": "clicks" // Обработчик клика
-        },
-
-        initialize: function () {
-            this.render();
         },
 
         render: function () {
