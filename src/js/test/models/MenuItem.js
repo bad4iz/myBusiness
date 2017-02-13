@@ -1,9 +1,7 @@
 /**
- * Created by bad4iz on 13.02.2017.
+ *   модель пункта menu
  */
-/////////////////////////////////
-//  модель пункта menu
-/////////////////////////////////
+
 define(['backbone'], function (Backbone) {
     var MenuItem = Backbone.Model.extend({
         defaults: {
