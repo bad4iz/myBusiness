@@ -1,16 +1,15 @@
 /**
- * Created by bad4iz on 13.02.2017.
+ *   модель картинок.
  */
-
-/////////////////////////////////
-//  модель картинок
-/////////////////////////////////
-App.Models.Image = Backbone.Model.extend({
-    defaults: {
-        src: 'img/backbone.png',
-        title: 'backbone',
-        alt: 'backbone'
-    }
+define(['backbone'], function (Backbone) {
+    var Image = Backbone.Model.extend({
+        defaults: {
+            src: 'img/backbone.png',
+            title: 'backbone',
+            alt: 'backbone'
+        }
+    });
+    return Image;
 });
 
 
