@@ -111,6 +111,8 @@ App.Views.TextView = Backbone.View.extend({
 App.Views.MenuItemView = Backbone.View.extend({
     tagName: 'li',
 
+    id: 'menu',
+
     template: _.template('<a class="<%= myclass %>" href="<%= href %>"> <%= title %></a>'),
 
     events: {

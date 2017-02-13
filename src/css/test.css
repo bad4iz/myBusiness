@@ -41,6 +41,13 @@ body {
     padding: 0;
 
 }
+div#index {
+    min-height: 400px;
+    display: flex;
+    flex-flow: column;
+    justify-content: space-between;
+    align-items: flex-start;
+}
 ul#menu{
     padding: 0;
     display: inline-block;
@@ -58,4 +65,7 @@ ul#menu li:nth-child(n + 1){
 li a{
     text-decoration: none;
     color: black;
+}
+div#other {
+    text-align: end;
 }
