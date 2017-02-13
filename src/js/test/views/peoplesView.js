@@ -1,29 +1,23 @@
-/**
- * Created by bad4iz on 13.02.2017.
- */
-define([ 'imageView', 'backbone' ], function (ImageView, Backbone) {
-    var ImagesView = Backbone.View.extend({
+define(['personView', 'backbone'], function (PersonView, Backbone) {
+    var PeopleView = Backbone.View.extend({
         initialize: function () {
             this.collection.on('add', this.addOne, this);
         },
-
-        tagName: 'section',
-
-        className: 'center slider',
+        tagName: 'ul',
 
         render: function () {
             this.collection.each(this.addOne, this);
             return this;
         },
 
-        addOne: function (mod) {
+        addOne: function (person) {
             //создавать новый дочерний вид
-            var imageView = new ImageView({
-                model: mod
+            var personView = new PersonView({
+                model: person
             });
             // добавлять его в корневой элемент
-            this.$el.append(imageView.render().el);
+            this.$el.append(personView.render().el);
         }
     });
-    return ImagesView;
+    return PeopleView;
 });

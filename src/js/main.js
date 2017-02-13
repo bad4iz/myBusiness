@@ -19,6 +19,7 @@ require.config({
         jquery: "lib/jquery-1.8.3",
         underscore: 'lib/underscore',
         backbone: 'lib/backbone',
+        slick: '../slick/slick',
 
         // models
         'image': "test/models/Image",
@@ -28,16 +29,16 @@ require.config({
 
         // collections
         'menuCollection': 'test/collections/menuCollection',
-        'imageCollection': 'test/collections/imageCollection.js',
+        'imageCollection': 'test/collections/imageCollection',
         'peopleCollection': 'test/collections/peopleCollection',
 
         // views
-        'imagesView': 'test/views/imagesView',
         'imageView': 'test/views/imageView',
+        'imagesView': 'test/views/imagesView',
         'menuItemView': 'test/views/menuItemView',
         'menuView': 'test/views/menuView',
-        'peopleView': 'test/views/peopleView',
         'personView': 'test/views/personView',
+        'peoplesView': 'test/views/peoplesView',
         'textView': 'test/views/textView',
 
 
