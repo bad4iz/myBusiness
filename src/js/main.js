@@ -24,7 +24,10 @@ require.config({
         'Image': "test/models/Image",
         'MenuItem': "test/models/MenuItem",
         'Person': "test/models/Person",
-        'Text': "test/models/Text"
+        'Text': "test/models/Text",
+
+        // route
+        'Controller': 'test/routers/Controller'
 
     }, shim: {
         'underscore': {
@@ -36,7 +39,10 @@ require.config({
         }
     }
 });
-require(['Text'], function (TextModel) {
-    var text = new TextModel;
-    console.log(text);
+require(['backbone', 'Controller'], function (Backbone, Controller) {
+
+    var controller = new Controller(); // Создаём контроллер
+
+    Backbone.history.start(); // Запускаем HTML5 History push
+
 });
