@@ -21,15 +21,15 @@ require.config({
         backbone: 'lib/backbone',
 
         // models
-        'Image': "test/models/Image",
-        'MenuItem': "test/models/MenuItem",
-        'Person': "test/models/Person",
-        'Text': "test/models/Text",
+        'image': "test/models/Image",
+        'menuItem': "test/models/MenuItem",
+        'person': "test/models/Person",
+        'text': "test/models/Text",
 
         // collections
-        'MenuCollection': 'test/collections/menuCollection',
-        'ImageCollection': 'test/collections/imageCollection.js',
-        'PeopleCollection': 'test/collections/peopleCollection',
+        'menuCollection': 'test/collections/menuCollection',
+        'imageCollection': 'test/collections/imageCollection.js',
+        'peopleCollection': 'test/collections/peopleCollection',
 
         // views
         'imagesView': 'test/views/imagesView',
@@ -42,7 +42,7 @@ require.config({
 
 
         // route
-        'Controller': 'test/routers/Controller'
+        'controller': 'test/routers/Controller'
 
     }, shim: {
         'underscore': {
@@ -54,7 +54,7 @@ require.config({
         }
     }
 });
-require(['backbone', 'Controller'], function (Backbone, Controller) {
+require(['backbone', 'controller'], function (Backbone, Controller) {
 
     var controller = new Controller(); // Создаём контроллер
 
