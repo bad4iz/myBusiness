@@ -1,3 +1,15 @@
 /**
- * Created by bad4iz on 13.02.2017.
+ *      model person
+ *
  */
+
+define(['backbone'], function (Backbone) {
+    var Person = Backbone.Model.extend({
+        defaults: {
+            name: '',
+            age: '',
+            occupation: ''
+        }
+    });
+    return Person;
+});
