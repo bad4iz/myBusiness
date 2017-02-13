@@ -1,43 +1,24 @@
 define(
     [
-        'slick',
-        'menuView',
-        'imagesView',
         'text',
         'textView',
-        'peoplesView',
-
 
         'indexPageView',
         'twoPageView',
 
-        'peopleCollection',
-        'imageCollection',
-        'menuCollection',
         'backbone'
-    ], function (slick,
-                 MenuView,
-                 ImagesView,
+    ], function (
                  Text,
                  TextView,
-                 PeoplesView,
 
                  IndexPageView,
                  TwoPageView,
 
-                 PeopleCollection,
-                 ImageCollection,
-                 MenuCollection,
                  Backbone) {
 
         var text = new Text();
-
-
-
         // text
         var txtView = new TextView({model: text});
-        // contacts
-
 
         var Controller = Backbone.Router.extend({
             routes: {
