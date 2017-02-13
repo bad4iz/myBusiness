@@ -21,12 +21,12 @@ define(
         var menu = [
             {
                 href: '#',
-                myclass: 'index listener Active',
+                myclass: 'index listener',
                 title: 'Начало'
             },
             {
                 href: '#contacts',
-                myclass: 'contacts listener',
+                myclass: 'contacts listener Active',
                 title: 'Контакты'
             },
             {
@@ -57,9 +57,6 @@ define(
         var text = new Text();
         var contactCollection = new PeopleCollection(persons);
 
-
-
-
         var TwoPage = Backbone.View.extend({
             initialize: function () {
                 var index = $('#index');
@@ -76,10 +73,6 @@ define(
                 index.append(txtView.render().el); // выводим контент
                 index.append(menuView.render().el); // вывод меню
             }
-
-
         });
-
-
         return TwoPage;
     });

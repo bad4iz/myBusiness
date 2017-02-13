@@ -1,8 +1,6 @@
 define(['personView', 'backbone'], function (PersonView, Backbone) {
     var PeopleView = Backbone.View.extend({
-        initialize: function () {
-            this.render();
-        },
+
         tagName: 'ul',
 
         render: function () {

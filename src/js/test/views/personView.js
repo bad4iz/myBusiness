@@ -1,8 +1,6 @@
 define(['backbone'], function (Backbone) {
     var PersonView = Backbone.View.extend({
-        initialize: function () {
-            this.render();
-        },
+
         tagName: 'li',
 
         template: _.template('<strong><%= name %></strong> (<%= age %>) - <%= occupation %>'),
