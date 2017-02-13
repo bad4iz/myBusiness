@@ -20,11 +20,15 @@ require.config({
         underscore: 'lib/underscore',
         backbone: 'lib/backbone',
 
-        //
+        // models
         'Image': "test/models/Image",
         'MenuItem': "test/models/MenuItem",
         'Person': "test/models/Person",
         'Text': "test/models/Text",
+
+        // collections
+
+        // views
 
         // route
         'Controller': 'test/routers/Controller'
