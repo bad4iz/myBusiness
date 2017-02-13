@@ -1,11 +1,9 @@
 /**
  * Created by bad4iz on 13.02.2017.
  */
-define(['backbone', 'person'], function (Backbone, Person) {
-
-    var PeopleCollection = Backbone.Collection.extend({
-        model: Person
+define(['backbone', 'image'], function (Backbone, Image) {
+    var ImageCollection = Backbone.Collection.extend({
+        model: Image
     });
-
-    return PeopleCollection;
+    return ImageCollection;
 });
