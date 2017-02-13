@@ -27,6 +27,9 @@ require.config({
         'Text': "test/models/Text",
 
         // collections
+        'MenuCollection': 'test/collections/menuCollection',
+        'ImageCollection': 'test/collections/imageCollection.js',
+        'PeopleCollection': 'test/collections/peopleCollection',
 
         // views
 
