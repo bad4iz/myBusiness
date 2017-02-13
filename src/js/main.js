@@ -21,10 +21,22 @@ require.config({
         backbone: 'lib/backbone',
 
         //
-        'AppView' : "test/views"
+        'Image': "test/models/Image",
+        'MenuItem': "test/models/MenuItem",
+        'Person': "test/models/Person",
+        'Text': "test/models/Text"
 
+    }, shim: {
+        'underscore': {
+            exports: '_'
+        },
+        'backbone': {
+            deps: ['underscore', 'jquery'],
+            exports: 'Backbone'
+        }
     }
 });
-require(['AppView'], function (AppView) {
-    new AppView;
+require(['Text'], function (TextModel) {
+    var text = new TextModel;
+    console.log(text);
 });
