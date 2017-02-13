@@ -32,6 +32,14 @@ require.config({
         'PeopleCollection': 'test/collections/peopleCollection',
 
         // views
+        'imagesView': 'test/views/imagesView',
+        'imageView': 'test/views/imageView',
+        'menuItemView': 'test/views/menuItemView',
+        'menuView': 'test/views/menuView',
+        'peopleView': 'test/views/peopleView',
+        'personView': 'test/views/personView',
+        'textView': 'test/views/textView',
+
 
         // route
         'Controller': 'test/routers/Controller'
