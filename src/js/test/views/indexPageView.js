@@ -69,17 +69,19 @@ define(
         var text = new Text();
 
 
-        // menu
-        var menuView = new MenuView({collection: menuCollection});
-        // img
-        var imgsView = new ImagesView({collection: imagesCollection});
-        // text
-        var txtView = new TextView({model: text});
+
 
 
         var IndexView = Backbone.View.extend({
             initialize: function () {
                 var index = $('#index');
+
+                // menu
+                var menuView = new MenuView({collection: menuCollection});
+                // img
+                var imgsView = new ImagesView({collection: imagesCollection});
+                // text
+                var txtView = new TextView({model: text});
 
                 $("#other").hide();  //прячим назад
                 index.html(menuView.render().el);  // вывод меню
