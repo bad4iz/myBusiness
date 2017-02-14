@@ -44,7 +44,7 @@ require.config({
 });
 require(['backbone', 'controller'], function (Backbone, Controller) {
 
-    var controller = new Controller(); // Создаём контроллер
+    new Controller(); // Создаём контроллер
 
     Backbone.history.start(); // Запускаем HTML5 History push
 
