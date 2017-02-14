@@ -28,9 +28,6 @@ require.config({
         'indexPageView': 'test/views/apps/indexPageView',
         'twoPageView': 'test/views/apps/twoPageView',
 
-        // глобальная прослушка
-        'vent': 'test/views/apps/vent.js',
-
         // route
         'controller': 'test/routers/Controller'
 

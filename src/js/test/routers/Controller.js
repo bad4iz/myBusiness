@@ -1,6 +1,6 @@
 define(
     [
-        'vent',
+
         'text',
         'textView',
 
@@ -9,7 +9,7 @@ define(
 
         'backbone'
     ], function (
-                 vent,
+
                  Text,
                  TextView,
 
@@ -32,8 +32,7 @@ define(
 
             // первая страница
             index: function () {
-                vent.trigger('indexPageView:show');
-                // new IndexPageView;
+                 new IndexPageView;
             },
 
             // вторая страница

@@ -5,7 +5,7 @@ define(
         'menuCollection',
         'imageCollection',
 
-        'vent',
+
         'textView',
         'menuView',
         'imagesView',
@@ -16,7 +16,6 @@ define(
                  MenuCollection,
                  ImageCollection,
 
-                 vent,
                  TextView,
                  MenuView,
                  ImagesView,
@@ -76,9 +75,7 @@ define(
 
         var IndexView = Backbone.View.extend({
             initialize: function () {
-                vent.on('indexPageView:show', this.show, this);
-            },
-            show: function () {
+
 
                 var index = $('#index');
 
