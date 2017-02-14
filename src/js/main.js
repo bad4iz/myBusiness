@@ -17,16 +17,16 @@ require.config({
         'peopleCollection': 'test/collections/peopleCollection',
 
         // views
-        'imageView': 'test/views/imageView',
-        'imagesView': 'test/views/imagesView',
-        'menuItemView': 'test/views/menuItemView',
-        'menuView': 'test/views/menuView',
-        'personView': 'test/views/personView',
-        'peoplesView': 'test/views/peoplesView',
-        'textView': 'test/views/textView',
+        'imageView': 'test/views/image/imageView',
+        'imagesView': 'test/views/image/imagesView',
+        'menuItemView': 'test/views/menu/menuItemView',
+        'menuView': 'test/views/menu/menuView',
+        'personView': 'test/views/contacts/personView',
+        'peoplesView': 'test/views/contacts/peoplesView',
+        'textView': 'test/views/text/textView',
 
-        'indexPageView': 'test/views/indexPageView',
-        'twoPageView': 'test/views/twoPageView',
+        'indexPageView': 'test/views/apps/indexPageView',
+        'twoPageView': 'test/views/apps/twoPageView',
 
 
         // route
