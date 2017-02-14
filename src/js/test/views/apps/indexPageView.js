@@ -69,19 +69,21 @@ define(['vent',
         var menuCollection = new MenuCollection(menu);
         var text = new Text();
 
+        // menu
+        var menuView = new MenuView({collection: menuCollection});
+        // img
+        var imgsView = new ImagesView({collection: imagesCollection});
+        // text
+        var txtView = new TextView({model: text});
+
         var IndexView = Backbone.View.extend({
             initialize: function () {
                 vent.on('index:show', this.show, this);
+
             },
             show: function () {
                 var index = $('#index');
 
-                // menu
-                var menuView = new MenuView({collection: menuCollection});
-                // img
-                var imgsView = new ImagesView({collection: imagesCollection});
-                // text
-                var txtView = new TextView({model: text});
 
                 index.html(menuView.render().el);  // вывод меню
                 index.append(imgsView.render().el);  // выводим img
