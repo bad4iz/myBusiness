@@ -12,6 +12,7 @@ define([ 'imageView', 'backbone' ], function (ImageView, Backbone) {
         className: 'center slider',
 
         render: function () {
+
             this.collection.each(this.addOne, this);
             return this;
         },

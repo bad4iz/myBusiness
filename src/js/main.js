@@ -4,6 +4,7 @@ require.config({
         underscore: 'lib/underscore',
         backbone: 'lib/backbone',
         slick: '../slick/slick',
+        controller: '../../node_modules/backbone.controller/backbone.controller',
 
         // models
         'image': "test/models/Image",
@@ -30,22 +31,24 @@ require.config({
 
         'vent': 'test/views/apps/vent',
 
-        // route
-        'controller': 'test/routers/Controller'
+        // // route
+        // 'controller': 'test/routers/Controller'
 
-    }, shim: {
-        'underscore': {
-            exports: '_'
-        },
-        'backbone': {
+    },shim: {
+        backbone: {
             deps: ['underscore', 'jquery'],
             exports: 'Backbone'
-        }
+        },
+        controller: {
+            deps: ['underscore', 'backbone']
+        },
+        app: ['controller']
     }
 });
 require(['backbone', 'controller'], function (Backbone, Controller) {
 
-    new Controller(); // Создаём контроллер
+
+    new Controller({router: true}); // Создаём контроллер
 
     Backbone.history.start(); // Запускаем HTML5 History push
 

@@ -1,0 +1,23 @@
+{
+  "name": "myBusiness",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "backbone.controller": "^0.3.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bad4iz/myBusiness.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bad4iz/myBusiness/issues"
+  },
+  "homepage": "https://github.com/bad4iz/myBusiness#readme"
+}
