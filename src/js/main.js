@@ -28,6 +28,8 @@ require.config({
         'indexPageView': 'test/views/apps/indexPageView',
         'twoPageView': 'test/views/apps/twoPageView',
 
+        'vent': 'test/views/apps/vent',
+
         // route
         'controller': 'test/routers/Controller'
 

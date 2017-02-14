@@ -1,5 +1,5 @@
 define(
-    [
+    [   'vent',
         'text',
         'menuCollection',
         'peopleCollection',
@@ -9,7 +9,8 @@ define(
         'peoplesView',
 
         'backbone'
-    ], function (Text,
+    ], function (vent,
+                 Text,
                  MenuCollection,
                  PeopleCollection,
 
@@ -59,6 +60,9 @@ define(
 
         var TwoPage = Backbone.View.extend({
             initialize: function () {
+                vent.on('contacts:show', this.show, this);
+            },
+            show: function () {
                 var index = $('#index');
 
                 // menu
@@ -73,6 +77,7 @@ define(
                 index.append(txtView.render().el); // выводим контент
                 index.append(menuView.render().el); // вывод меню
             }
+
         });
         return TwoPage;
     });

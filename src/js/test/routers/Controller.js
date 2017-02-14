@@ -1,6 +1,6 @@
 define(
     [
-
+        'vent',
         'text',
         'textView',
 
@@ -9,7 +9,7 @@ define(
 
         'backbone'
     ], function (
-
+                 vent,
                  Text,
                  TextView,
 
@@ -18,11 +18,18 @@ define(
 
                  Backbone) {
 
+
+
         var text = new Text();
         // text
         var txtView = new TextView({model: text});
+
+        // инициализация прослушки на события
         new IndexPageView;
+        new TwoPageView;
+
         var Controller = Backbone.Router.extend({
+
             routes: {
                 "": "index", // Пустой hash-тэг
                 "contacts": "contacts", // Блок контактов
@@ -32,12 +39,15 @@ define(
 
             // первая страница
             index: function () {
-                 new IndexPageView;
+                $("#other").hide();  //прячим назад
+                vent.trigger('index:show');
             },
+
 
             // вторая страница
             contacts: function () {
-               new TwoPageView;
+                $("#other").hide();  //прячим назад
+                vent.trigger('contacts:show');
             },
 
             // третья страница

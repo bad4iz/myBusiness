@@ -1,5 +1,6 @@
 define(
     [
+        'vent',
         'slick',
         'text',
         'menuCollection',
@@ -11,7 +12,8 @@ define(
         'imagesView',
 
         'backbone'
-    ], function (slick,
+    ], function (vent,
+                 slick,
                  Text,
                  MenuCollection,
                  ImageCollection,
@@ -75,8 +77,9 @@ define(
 
         var IndexView = Backbone.View.extend({
             initialize: function () {
-
-
+                vent.on('index:show', this.show, this);
+            },
+            show: function () {
                 var index = $('#index');
 
                 // menu
@@ -86,7 +89,6 @@ define(
                 // text
                 var txtView = new TextView({model: text});
 
-                $("#other").hide();  //прячим назад
                 index.html(menuView.render().el);  // вывод меню
                 index.append(imgsView.render().el);  // выводим img
                 index.append(txtView.render().el); // выводим контент
