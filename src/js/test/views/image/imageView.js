@@ -8,7 +8,7 @@ define(['backbone'], function (Backbone) {
         template: _.template('<img src="<%= src %>" alt="<%= alt %>">'),
 
         initialize: function () {
-
+            this.render();
         },
 
         render: function () {
@@ -16,6 +16,5 @@ define(['backbone'], function (Backbone) {
             return this;
         }
     });
-
     return ImageView;
 });

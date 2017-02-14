@@ -1,6 +1,4 @@
-define(
-    [
-        'vent',
+define(['vent',
         'slick',
         'text',
         'menuCollection',
@@ -71,10 +69,6 @@ define(
         var menuCollection = new MenuCollection(menu);
         var text = new Text();
 
-
-
-
-
         var IndexView = Backbone.View.extend({
             initialize: function () {
                 vent.on('index:show', this.show, this);
@@ -104,10 +98,6 @@ define(
                     autoplaySpeed: 1000
                 });
             }
-
-
         });
-
-
         return IndexView;
     });

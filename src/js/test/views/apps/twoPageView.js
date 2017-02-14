@@ -1,5 +1,4 @@
-define(
-    [   'vent',
+define(['vent',
         'text',
         'menuCollection',
         'peopleCollection',
@@ -19,6 +18,8 @@ define(
                  PeoplesView,
 
                  Backbone) {
+
+
         var menu = [
             {
                 href: '#',

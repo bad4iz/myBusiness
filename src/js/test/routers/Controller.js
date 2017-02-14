@@ -1,6 +1,4 @@
-define(
-    [
-        'vent',
+define(['vent',
         'text',
         'textView',
 
@@ -8,8 +6,7 @@ define(
         'twoPageView',
 
         'backbone'
-    ], function (
-                 vent,
+    ], function (vent,
                  Text,
                  TextView,
 
@@ -17,7 +14,6 @@ define(
                  TwoPageView,
 
                  Backbone) {
-
 
 
         var text = new Text();
@@ -43,7 +39,6 @@ define(
                 vent.trigger('index:show');
             },
 
-
             // вторая страница
             contacts: function () {
                 $("#other").hide();  //прячим назад
@@ -58,7 +53,5 @@ define(
                 index.html(txtView.render().el); // выводим контент
             }
         });
-
-
         return Controller;
     });
