@@ -1,5 +1,6 @@
 define(
     [
+        'vent',
         'text',
         'textView',
 
@@ -8,6 +9,7 @@ define(
 
         'backbone'
     ], function (
+                 vent,
                  Text,
                  TextView,
 
@@ -19,7 +21,7 @@ define(
         var text = new Text();
         // text
         var txtView = new TextView({model: text});
-
+        new IndexPageView;
         var Controller = Backbone.Router.extend({
             routes: {
                 "": "index", // Пустой hash-тэг
@@ -30,7 +32,8 @@ define(
 
             // первая страница
             index: function () {
-                new IndexPageView;
+                vent.trigger('indexPageView:show');
+                // new IndexPageView;
             },
 
             // вторая страница
